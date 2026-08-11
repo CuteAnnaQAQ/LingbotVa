@@ -255,6 +255,10 @@ huggingface-cli download --repo-type dataset robbyant/robotwin-clean-and-aug-ler
 
 ### Custom Dataset Preparation
 
+For the official RoboMME LeRobot v2.1 dataset, see the field-level compatibility
+matrix and validation workflow in
+[ROBOMME_LEROBOT_V21_FORMAT.md](ROBOMME_LEROBOT_V21_FORMAT.md).
+
 If you want to fine-tune LingBot-VA on your own robotic manipulation data, follow these steps:
 
 #### Example Dataset

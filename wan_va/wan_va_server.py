@@ -1,4 +1,5 @@
 # Copyright 2024-2025 The Robbyant Team Authors. All rights reserved.
+# 将模型 30D输出反归一化，并选出[14:21]+[28]八个通道
 import argparse
 import os
 import sys
@@ -620,8 +621,16 @@ class VA_Server:
             return dict()
         else:
             logger.info(f"################# Infer One Chunk #################")
+            conditioned_action_frames = 1 if self.frame_st_id == 0 else 0
             action, _ = self._infer(obs, frame_st_id=self.frame_st_id)
-            return dict(action=action)
+            #返回action_representation和conditioned_action_frames，让客户端知道action的表示方式和是否有条件动作帧
+            return dict(
+                action=action,
+                action_representation=getattr(
+                    self.job_config, "action_representation", "absolute_joint"
+                ),
+                conditioned_action_frames=conditioned_action_frames,
+            )
     
     def decode_one_video(self, latents, output_type):
         latents = latents.to(self.vae.dtype)
