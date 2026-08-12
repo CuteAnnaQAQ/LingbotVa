@@ -329,6 +329,20 @@ For episodes with a single continuous action, `start_frame` should be `0` and `e
 
 LingBot-VA operates on video latent representations rather than raw pixels. You need to extract the latent features using the Wan2.2 VAE encoder and place them under the converted LeRobot dataset directory. Please refer to the [Wan-Video documentation](https://github.com/Wan-Video) for instructions on how to run the VAE encoder.
 
+For the official RoboMME LeRobot v2.1 dataset, which stores `image` and
+`wrist_image` directly in Parquet, use the included extractor after adding
+`action_config`:
+
+```bash
+export LINGBOT_WAN_MODEL_PATH=/path/to/lingbot-va-base
+python wan_va/utils/extract_robomme_latents.py \
+  --dataset-root /path/to/robomme_data_lerobot \
+  --device cuda --text-encoder-device cpu
+```
+
+See [`ROBOMME_LEROBOT_V21_FORMAT.md`](ROBOMME_LEROBOT_V21_FORMAT.md) for the
+complete RoboMME preparation and validation workflow.
+
 The extracted latent files should be placed under `latents/` in your dataset directory, mirroring the structure of `videos/`:
 
 ```

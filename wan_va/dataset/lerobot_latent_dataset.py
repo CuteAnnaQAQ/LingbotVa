@@ -160,8 +160,10 @@ class LatentLeRobotDataset(LeRobotDataset):
         self.latent_path = self.root / 'latents'
         self.empty_emb = torch.load(config.empty_emb_path, weights_only=False)
         self.config = config
-        self.cfg_prob = config.cfg_prob
+        self.cfg_prob = config.cfg_probR
         self.used_video_keys = config.obs_cam_keys
+        #LingBot 原默认字段：action,RoboMME 官方字段： actions,直接使用原lodaer会读取失败，这里改成配置化字段
+        #RoboMME 配置设为 actions，其他 LingBot 数据仍默认使用 action
         self.dataset_action_key = getattr(config, 'dataset_action_key', 'action')
         self.dataset_state_key = getattr(config, 'dataset_state_key', 'state')
         self.action_representation = getattr(

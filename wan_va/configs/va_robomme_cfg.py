@@ -11,7 +11,7 @@ va_robomme_cfg = EasyDict(__name__='Config: VA RoboMME')
 va_robomme_cfg.update(va_shared_cfg)
 va_robomme_cfg.infer_mode = 'server'
 
-va_robomme_cfg.wan22_pretrained_model_name_or_path = "/DATA/disk0/yry/lingbot-va-posttrain"
+va_robomme_cfg.wan22_pretrained_model_name_or_path = "/DATA/disk0/yry/lingbot-va-base"
 
 va_robomme_cfg.attn_window = 30
 va_robomme_cfg.frame_chunk_size = 4

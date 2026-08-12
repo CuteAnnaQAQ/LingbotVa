@@ -10,7 +10,7 @@ va_robomme_train_cfg = EasyDict(__name__='Config: VA RoboMME train')
 va_robomme_train_cfg.update(va_robomme_cfg)
 
 va_robomme_train_cfg.dataset_path = os.getenv(
-    'ROBOMME_LEROBOT_DATASET_PATH', '/path/to/robomme_data_lerobot')
+    'ROBOMME_LEROBOT_DATASET_PATH', '/DATA/disk0/yry/robomme_data_lerobot')
 va_robomme_train_cfg.empty_emb_path = os.path.join(
     va_robomme_train_cfg.dataset_path, 'empty_emb.pt')
 va_robomme_train_cfg.require_action_stats = True
@@ -26,5 +26,5 @@ va_robomme_train_cfg.beta2 = 0.95
 va_robomme_train_cfg.weight_decay = 1e-1
 va_robomme_train_cfg.warmup_steps = 10
 va_robomme_train_cfg.batch_size = 1
-va_robomme_train_cfg.gradient_accumulation_steps = 32
+va_robomme_train_cfg.gradient_accumulation_steps    = 32
 va_robomme_train_cfg.num_steps = 50000

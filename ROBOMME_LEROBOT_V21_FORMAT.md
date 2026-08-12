@@ -163,10 +163,26 @@ python -m wan_va.utils.add_robomme_action_config \
 一段式配置；不能只改 loader，因为 latent 文件名、`text_emb` 和 action 截取必须使用
 同一组边界。
 
-3. 使用 Wan2.2 VAE 为 `image`、`wrist_image` 两个 Parquet 图像流提取 latent。
-   LingBot 仓库目前只定义了 latent 格式，没有附带通用离线 extractor。若现有 extractor
-   只接受 MP4，先把两个 `dtype=image` 列按 `frame_index`、10 FPS 导出为视频；不要因为
-   官方 `videos/` 为空而跳过图像。
+3. 使用本仓库的 RoboMME extractor 为 `image`、`wrist_image` 两个 Parquet 图像流
+   提取 Wan2.2 latent，并生成 `empty_emb.pt`。模型目录必须是完整下载到本地的
+   `robbyant/lingbot-va-base`，且包含 `vae/`、`tokenizer/` 和 `text_encoder/`。
+
+```bash
+export LINGBOT_WAN_MODEL_PATH=/path/to/lingbot-va-base
+python wan_va/utils/extract_robomme_latents.py \
+  --dataset-root /path/to/robomme_data_lerobot \
+  --device cuda \
+  --text-encoder-device cpu \
+  --temporal-chunk-size 32
+```
+
+默认保持官方数据的 10 FPS，不覆盖已经存在的文件，因此任务中断后可直接重复执行。
+正式运行前可以增加 `--dry-run` 只检查 metadata 和待生成文件。多卡/多机时可使用
+`--episode-start` 与 `--episode-end`（右开）手动切分不重叠的 episode 范围。
+
+extractor 会直接解码 Parquet 中两个 `dtype=image` 列，不需要先导出 MP4；同一 segment
+内部使用 causal VAE 分块编码并保持时序 cache，在相机或 segment 边界清空 cache。
+
 4. 从相同训练 split 的原始 `actions` 列计算 absolute-action quantiles。
 
 ```bash
@@ -191,4 +207,11 @@ python -m wan_va.utils.validate_robomme_lerobot \
 ```text
 Raw LeRobot v2.1 compatibility: PASS
 LingBot training readiness:      PASS
+```
+
+6. 显式选择 RoboMME 后训练配置启动训练；启动脚本的默认配置仍是
+   `robotwin_train`。
+
+```bash
+NGPU=8 CONFIG_NAME=robomme_train bash script/run_va_posttrain.sh
 ```
