@@ -24,6 +24,10 @@ extractor = _load_extractor()
 
 
 class RoboMMELatentExtractorTest(unittest.TestCase):
+    def test_default_text_sequence_length_matches_flex_attention(self):
+        args = extractor._build_parser().parse_args([])
+        self.assertEqual(args.max_sequence_length, 512)
+
     def test_camera_encoding_uses_public_wan_vae_api(self):
         source = inspect.getsource(extractor._encode_camera_segment)
         self.assertIn("bundle.vae.encode(video)", source)

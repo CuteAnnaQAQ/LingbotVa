@@ -38,6 +38,15 @@ def _write_jsonl(path: Path, rows) -> None:
 
 
 class RoboMMEDataCompatibilityTest(unittest.TestCase):
+    def test_text_embedding_shape_must_match_flex_attention(self):
+        class Embedding:
+            shape = (226, 4096)
+
+        result = _validator.AuditResult()
+        _validator._validate_text_embedding(Embedding(), "sample", result)
+        self.assertEqual(len(result.ready_errors), 1)
+        self.assertIn("(512, 4096)", result.ready_errors[0])
+
     def setUp(self):
         self.temp_dir = tempfile.TemporaryDirectory()
         self.root = Path(self.temp_dir.name)

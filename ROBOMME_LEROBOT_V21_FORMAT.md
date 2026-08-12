@@ -146,7 +146,38 @@ export LINGBOT_WAN_MODEL_PATH=/path/to/lingbot-va-base
 python wan_va/utils/extract_robomme_latents.py \
   --dataset-root /path/to/robomme_data_lerobot \
   --device cuda \
-  --text-encoder-device cpu
+  --text-encoder-device cpu \
+  --max-sequence-length 512
+```
+
+训练使用 FlexAttention，其 cross-attention mask 的文本长度为 512，因此
+`text_emb` 和 `empty_emb.pt` 也必须使用 512。若已有产物是其他长度，使用下面的
+命令重新生成并覆盖全部 VAE latent 和文本 embedding：
+
+```bash
+python wan_va/utils/extract_robomme_latents.py \
+  --dataset-root /path/to/robomme_data_lerobot \
+  --device cuda \
+  --text-encoder-device cpu \
+  --max-sequence-length 512 \
+  --force
+```
+
+完成后检查所有 latent 和空文本 embedding 的形状均为 `[512, 4096]`：
+
+```bash
+python wan_va/utils/validate_robomme_lerobot.py \
+  --dataset-root /path/to/robomme_data_lerobot \
+  --action-stats /path/to/action_stats.json \
+  --inspect-latents \
+  --require-lingbot-ready
+```
+
+使用仓库的 Slurm 脚本全量覆盖重跑时，可提交：
+
+```bash
+sbatch --export=ALL,ROBOMME_FORCE_REEXTRACT=1 \
+  script/extract_robomme_latents.sbatch
 ```
 
 默认保持官方数据的 10 FPS，不覆盖已经存在的文件，因此任务中断后可直接重复执行。

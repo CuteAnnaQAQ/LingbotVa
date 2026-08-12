@@ -785,7 +785,15 @@ def _build_parser() -> argparse.ArgumentParser:
         default=None,
         help="目标 FPS；默认保持数据集原 FPS，且 source_fps/target_fps 必须为整数",
     )
-    parser.add_argument("--max-sequence-length", type=int, default=226)
+    parser.add_argument(
+        "--max-sequence-length",
+        type=int,
+        default=512,
+        help=(
+            "文本 embedding 的固定序列长度；默认 512，与训练时 FlexAttention "
+            "cross-attention mask 保持一致"
+        ),
+    )
     parser.add_argument("--device", default="cuda")
     parser.add_argument("--text-encoder-device", default="cpu")
     parser.add_argument(

@@ -18,9 +18,16 @@ cd "${SLURM_SUBMIT_DIR}"
 
 DATASET_ROOT=/DATA/disk0/yry/robomme_data_lerobot
 ACTION_STATS=${DATASET_ROOT}/robomme_action_stats.json
+EXTRACT_ARGS=(
+    --dataset-root "${DATASET_ROOT}"
+    --max-sequence-length 512
+)
+if [[ "${ROBOMME_FORCE_REEXTRACT:-0}" == "1" ]]; then
+    EXTRACT_ARGS+=(--force)
+fi
 
 echo "[1/3] 提取 latent"
-srun python wan_va/utils/extract_robomme_latents.py
+srun python wan_va/utils/extract_robomme_latents.py "${EXTRACT_ARGS[@]}"
 
 echo "[2/3] 计算 action 分位数"
 srun python -m wan_va.utils.compute_robomme_action_stats \

@@ -337,8 +337,14 @@ For the official RoboMME LeRobot v2.1 dataset, which stores `image` and
 export LINGBOT_WAN_MODEL_PATH=/path/to/lingbot-va-base
 python wan_va/utils/extract_robomme_latents.py \
   --dataset-root /path/to/robomme_data_lerobot \
-  --device cuda --text-encoder-device cpu
+  --device cuda --text-encoder-device cpu \
+  --max-sequence-length 512
 ```
+
+`512` must match the training-time FlexAttention cross-attention mask. If the
+dataset was previously extracted with a different text sequence length, rerun
+the command with `--force` to replace the existing latent files and
+`empty_emb.pt`.
 
 See [`ROBOMME_LEROBOT_V21_FORMAT.md`](ROBOMME_LEROBOT_V21_FORMAT.md) for the
 complete RoboMME preparation and validation workflow.

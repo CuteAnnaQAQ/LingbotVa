@@ -52,6 +52,7 @@ REQUIRED_LATENT_KEYS = (
     "fps",
     "ori_fps",
 )
+EXPECTED_TEXT_EMBEDDING_SHAPE = (512, 4096)
 
 
 @dataclass
@@ -364,11 +365,23 @@ def _validate_action_stats(path: Path | None, result: AuditResult) -> None:
             result.ready_errors.append(f"action statistics {key} must be finite 8D")
 
 
+def _validate_text_embedding(value: Any, label: str,
+                             result: AuditResult) -> None:
+    shape = getattr(value, "shape", None)
+    actual_shape = tuple(shape) if shape is not None else None
+    if actual_shape != EXPECTED_TEXT_EMBEDDING_SHAPE:
+        result.ready_errors.append(
+            f"{label}: text embedding shape must be "
+            f"{EXPECTED_TEXT_EMBEDDING_SHAPE}, got {actual_shape}")
+
+
 def _validate_lingbot_ready(root: Path, info: dict[str, Any],
                             episodes: list[dict[str, Any]], result: AuditResult,
                             inspect_latents: bool, action_stats: Path | None) -> None:
-    if not (root / "empty_emb.pt").is_file():
-        result.ready_errors.append(f"missing LingBot empty embedding: {root / 'empty_emb.pt'}")
+    empty_embedding_path = root / "empty_emb.pt"
+    if not empty_embedding_path.is_file():
+        result.ready_errors.append(
+            f"missing LingBot empty embedding: {empty_embedding_path}")
     _validate_action_stats(action_stats, result)
 
     chunks_size = info.get("chunks_size")
@@ -414,6 +427,11 @@ def _validate_lingbot_ready(root: Path, info: dict[str, Any],
         result.ready_errors.append(
             "--inspect-latents requires torch inside the LingBot environment")
         return
+    if empty_embedding_path.is_file():
+        empty_embedding = torch.load(
+            empty_embedding_path, map_location="cpu", weights_only=False)
+        _validate_text_embedding(
+            empty_embedding, str(empty_embedding_path), result)
     for path, episode_index, start, end, camera_key in latent_records:
         payload = torch.load(path, map_location="cpu", weights_only=False)
         missing = [key for key in REQUIRED_LATENT_KEYS if key not in payload]
@@ -427,6 +445,7 @@ def _validate_lingbot_ready(root: Path, info: dict[str, Any],
         if not payload["frame_ids"] or len(payload["frame_ids"]) < 2:
             result.ready_errors.append(
                 f"{path}: {camera_key} frame_ids must contain at least 2 frames")
+        _validate_text_embedding(payload["text_emb"], str(path), result)
 
 
 def audit_dataset(dataset_root: str | Path, *, scan_rows: bool = False,
