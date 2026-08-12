@@ -14,9 +14,11 @@ va_robomme_train_cfg.dataset_path = os.getenv(
 va_robomme_train_cfg.empty_emb_path = os.path.join(
     va_robomme_train_cfg.dataset_path, 'empty_emb.pt')
 va_robomme_train_cfg.require_action_stats = True
-va_robomme_train_cfg.enable_wandb = True
-va_robomme_train_cfg.load_worker = 16
-va_robomme_train_cfg.save_interval = 200
+va_robomme_train_cfg.enable_wandb = os.getenv(
+    'ROBOMME_ENABLE_WANDB', '1') == '1'
+va_robomme_train_cfg.load_worker = int(os.getenv('ROBOMME_LOAD_WORKER', '16'))
+va_robomme_train_cfg.save_interval = int(
+    os.getenv('ROBOMME_SAVE_INTERVAL', '200'))
 va_robomme_train_cfg.gc_interval = 50
 va_robomme_train_cfg.cfg_prob = 0.1
 
@@ -25,6 +27,7 @@ va_robomme_train_cfg.beta1 = 0.9
 va_robomme_train_cfg.beta2 = 0.95
 va_robomme_train_cfg.weight_decay = 1e-1
 va_robomme_train_cfg.warmup_steps = 10
-va_robomme_train_cfg.batch_size = 1
-va_robomme_train_cfg.gradient_accumulation_steps    = 32
-va_robomme_train_cfg.num_steps = 50000
+va_robomme_train_cfg.batch_size = int(os.getenv('ROBOMME_BATCH_SIZE', '1'))
+va_robomme_train_cfg.gradient_accumulation_steps = int(
+    os.getenv('ROBOMME_GRADIENT_ACCUMULATION_STEPS', '32'))
+va_robomme_train_cfg.num_steps = int(os.getenv('ROBOMME_NUM_STEPS', '50000'))

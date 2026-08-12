@@ -52,7 +52,9 @@ def construct_lerobot_multi_processor(config,
     if not repo_list:
         raise FileNotFoundError(
             f'No LeRobot meta/info.json found under {config.dataset_path}')
-    with Pool(num_init_worker) as pool:
+    if len(repo_list) == 1:
+        return [construct_lerobot(repo_list[0], config)]
+    with Pool(min(num_init_worker, len(repo_list))) as pool:
         datasets_out_lst = pool.map(construct_func, repo_list)
                 
     return datasets_out_lst
@@ -160,7 +162,7 @@ class LatentLeRobotDataset(LeRobotDataset):
         self.latent_path = self.root / 'latents'
         self.empty_emb = torch.load(config.empty_emb_path, weights_only=False)
         self.config = config
-        self.cfg_prob = config.cfg_probR
+        self.cfg_prob = config.cfg_prob
         self.used_video_keys = config.obs_cam_keys
         #LingBot 原默认字段：action,RoboMME 官方字段： actions,直接使用原lodaer会读取失败，这里改成配置化字段
         #RoboMME 配置设为 actions，其他 LingBot 数据仍默认使用 action

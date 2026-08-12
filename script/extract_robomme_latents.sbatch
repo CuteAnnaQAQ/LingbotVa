@@ -23,11 +23,11 @@ echo "[1/3] 提取 latent"
 srun python wan_va/utils/extract_robomme_latents.py
 
 echo "[2/3] 计算 action 分位数"
-srun python wan_va/utils/compute_robomme_action_stats.py \
+srun python -m wan_va.utils.compute_robomme_action_stats \
     "${DATASET_ROOT}" --output "${ACTION_STATS}"
 
 echo "[3/3] 校验 LingBot-ready"
-srun python wan_va/utils/validate_robomme_lerobot.py \
+srun python -m wan_va.utils.validate_robomme_lerobot \
     --dataset-root "${DATASET_ROOT}" \
     --action-stats "${ACTION_STATS}" \
     --scan-rows --inspect-latents --require-lingbot-ready
