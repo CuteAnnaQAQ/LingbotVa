@@ -8,7 +8,16 @@ import random
 import torch
 
 from wan_va.configs import VA_CONFIGS
-from wan_va.dataset import MultiLatentLeRobotDataset
+
+try:
+    from wan_va.dataset import MultiLatentLeRobotDataset
+except ModuleNotFoundError as error:
+    if error.name == "lerobot":
+        raise RuntimeError(
+            "当前 Python 环境缺少 lerobot；请运行 "
+            "`python -m pip install lerobot==0.3.3 --no-deps`"
+        ) from error
+    raise
 
 
 def main() -> int:
