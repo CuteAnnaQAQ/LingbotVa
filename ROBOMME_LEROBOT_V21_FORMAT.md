@@ -125,33 +125,7 @@ text_emb, text, frame_ids, start_frame, end_frame, fps, ori_fps
 
 以下命令从 `lingbot-va/` 执行。
 
-0. 先把官方数据下载到独立的数据目录。路径不需要写死在仓库中，训练配置通过
-   `ROBOMME_LEROBOT_DATASET_PATH` 读取。不要把数十 GB 级数据提交进源码目录。
-
-```bash
-huggingface-cli download Yinpei/robomme_data_lerobot \
-  --repo-type dataset \
-  --local-dir /data/robomme_data_lerobot
-
-export ROBOMME_LEROBOT_DATASET_PATH=/data/robomme_data_lerobot
-```
-
-Windows PowerShell 可使用：
-
-```powershell
-$env:ROBOMME_LEROBOT_DATASET_PATH = 'E:\Science\Embodied_AI\data\robomme_data_lerobot'
-```
-
-1. 下载完成后，首先检查官方 raw dataset。`--scan-rows` 会逐帧检查两路 RGB 非空、action 为
-   finite 8D、episode/frame index 正确、timestamp 与 10 FPS 一致。
-
-```bash
-python -m wan_va.utils.validate_robomme_lerobot \
-  --dataset-root /path/to/robomme_data_lerobot \
-  --scan-rows
-```
-
-2. 为每个 episode 生成最小的一段式 `action_config`。原文件会先产生带时间戳的备份。
+1. 为每个 episode 生成最小的一段式 `action_config`。原文件会先产生带时间戳的备份。
 
 ```bash
 python -m wan_va.utils.add_robomme_action_config \
@@ -207,6 +181,21 @@ python -m wan_va.utils.validate_robomme_lerobot \
 ```text
 Raw LeRobot v2.1 compatibility: PASS
 LingBot training readiness:      PASS
+```
+
+步骤 3～5 已合并到一个可重复提交的 Slurm 流水线中。它会依次提取 latent、把
+`robomme_action_stats.json` 写到数据集根目录，并执行上述严格校验：
+
+```bash
+sbatch script/extract_robomme_latents.sbatch
+```
+
+如需覆盖数据集或统计文件路径，在提交时设置环境变量；三个阶段会共同使用同一组路径：
+
+```bash
+ROBOMME_LEROBOT_DATASET_PATH=/data/robomme_data_lerobot \
+LINGBOT_ROBOMME_ACTION_STATS=/data/robomme_data_lerobot/robomme_action_stats.json \
+sbatch script/extract_robomme_latents.sbatch
 ```
 
 6. 显式选择 RoboMME 后训练配置启动训练；启动脚本的默认配置仍是
