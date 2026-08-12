@@ -146,16 +146,15 @@ export LINGBOT_WAN_MODEL_PATH=/path/to/lingbot-va-base
 python wan_va/utils/extract_robomme_latents.py \
   --dataset-root /path/to/robomme_data_lerobot \
   --device cuda \
-  --text-encoder-device cpu \
-  --temporal-chunk-size 32
+  --text-encoder-device cpu
 ```
 
 默认保持官方数据的 10 FPS，不覆盖已经存在的文件，因此任务中断后可直接重复执行。
 正式运行前可以增加 `--dry-run` 只检查 metadata 和待生成文件。多卡/多机时可使用
 `--episode-start` 与 `--episode-end`（右开）手动切分不重叠的 episode 范围。
 
-extractor 会直接解码 Parquet 中两个 `dtype=image` 列，不需要先导出 MP4；同一 segment
-内部使用 causal VAE 分块编码并保持时序 cache，在相机或 segment 边界清空 cache。
+extractor 会直接解码 Parquet 中两个 `dtype=image` 列，不需要先导出 MP4；Wan VAE 的
+官方 `encode()` 会在每个独立 segment 内维护 causal cache。
 
 4. 从相同训练 split 的原始 `actions` 列计算 absolute-action quantiles。
 
@@ -187,8 +186,14 @@ LingBot training readiness:      PASS
 `robomme_action_stats.json` 写到数据集根目录，并执行上述严格校验：
 
 ```bash
+conda activate lingbotva
 sbatch script/extract_robomme_latents.sbatch
 ```
+
+`sbatch` 使用非交互 shell，因此流水线还会在计算节点显式加载 Conda 并再次激活
+`lingbotva`。如环境名称不同，可设置 `CONDA_ENV_NAME`；也可用 `PYTHON_BIN` 直接指定
+目标环境中的 Python。正式编码前脚本会预检 Torch、Diffusers、Transformers、PyArrow、
+Pillow、NumPy 和 CUDA 状态。
 
 如需覆盖数据集或统计文件路径，在提交时设置环境变量；三个阶段会共同使用同一组路径：
 

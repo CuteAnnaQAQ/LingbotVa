@@ -59,73 +59,12 @@ class ModelBundle:
     torch: Any
     functional: Any
     vae: Any
-    streaming_vae: Any
     tokenizer: Any
     text_encoder: Any
     dtype: Any
     vae_device: Any
     text_device: Any
     prompt_clean: Any
-
-
-class _WanVAEStreamingEncoder:
-    """最小化复用 LingBot 的 causal VAE 分块编码协议。"""
-
-    def __init__(self, vae: Any):
-        self.vae = vae
-        self.encoder = vae.encoder
-        self.quant_conv = vae.quant_conv
-        if hasattr(vae, "_cached_conv_counts"):
-            self.encoder_cache_count = vae._cached_conv_counts["encoder"]
-        else:
-            self.encoder_cache_count = sum(
-                module.__class__.__name__ == "WanCausalConv3d"
-                for module in self.encoder.modules()
-            )
-        self.clear_cache()
-
-    def clear_cache(self) -> None:
-        self.feature_cache = [None] * self.encoder_cache_count
-
-    @staticmethod
-    def _patchify(value: Any, patch_size: int | None) -> Any:
-        if patch_size is None or patch_size == 1:
-            return value
-        batch, channels, frames, height, width = value.shape
-        if height % patch_size or width % patch_size:
-            raise ValueError(
-                f"VAE patch_size={patch_size} does not divide "
-                f"input size {(height, width)}"
-            )
-        value = value.view(
-            batch,
-            channels,
-            frames,
-            height // patch_size,
-            patch_size,
-            width // patch_size,
-            patch_size,
-        )
-        value = value.permute(0, 1, 6, 4, 2, 3, 5).contiguous()
-        return value.view(
-            batch,
-            channels * patch_size * patch_size,
-            frames,
-            height // patch_size,
-            width // patch_size,
-        )
-
-    def encode_chunk(self, value: Any) -> Any:
-        value = self._patchify(
-            value, getattr(self.vae.config, "patch_size", None)
-        )
-        feature_index = [0]
-        encoded = self.encoder(
-            value,
-            feat_cache=self.feature_cache,
-            feat_idx=feature_index,
-        )
-        return self.quant_conv(encoded)
 
 
 def _read_json(path: Path) -> dict[str, Any]:
@@ -385,7 +324,6 @@ def _load_models(
         torch=torch,
         functional=functional,
         vae=vae,
-        streaming_vae=_WanVAEStreamingEncoder(vae),
         tokenizer=tokenizer,
         text_encoder=text_encoder,
         dtype=dtype,
@@ -520,21 +458,20 @@ def _preprocess_frames(bundle: ModelBundle, frames: Sequence[Any], size: tuple[i
     return tensor.to(device=bundle.vae_device, dtype=bundle.dtype)
 
 
-def _normalize_encoder_output(bundle: ModelBundle, encoder_output: Any) -> Any:
+def _normalize_latent(bundle: ModelBundle, latent: Any) -> Any:
     torch = bundle.torch
-    mu, _logvar = torch.chunk(encoder_output, 2, dim=1)
     mean = torch.tensor(
-        bundle.vae.config.latents_mean, dtype=torch.float32, device=mu.device
+        bundle.vae.config.latents_mean, dtype=torch.float32, device=latent.device
     ).view(1, -1, 1, 1, 1)
     inverse_std = (
         1.0
         / torch.tensor(
             bundle.vae.config.latents_std,
             dtype=torch.float32,
-            device=mu.device,
+            device=latent.device,
         )
     ).view(1, -1, 1, 1, 1)
-    return ((mu.float() - mean) * inverse_std).to(mu)
+    return ((latent.float() - mean) * inverse_std).to(latent)
 
 
 def _encode_camera_segment(
@@ -547,7 +484,6 @@ def _encode_camera_segment(
     parquet_path: Path,
     height: int,
     width: int,
-    temporal_chunk_size: int,
 ) -> tuple[Any, int, int, int]:
     torch = bundle.torch
     missing = [frame_id for frame_id in frame_ids if frame_id not in frame_to_row]
@@ -557,26 +493,19 @@ def _encode_camera_segment(
             f"{missing[:5]}"
         )
 
-    bundle.streaming_vae.clear_cache()
-    latent_chunks = []
+    frames = [
+        _decode_image_cell(
+            image_values[frame_to_row[frame_id]],
+            dataset_root=dataset_root,
+            parquet_path=parquet_path,
+        )
+        for frame_id in frame_ids
+    ]
+    video = _preprocess_frames(bundle, frames, (height, width))
     with torch.inference_mode():
-        for offset in range(0, len(frame_ids), temporal_chunk_size):
-            chunk_ids = frame_ids[offset : offset + temporal_chunk_size]
-            frames = [
-                _decode_image_cell(
-                    image_values[frame_to_row[frame_id]],
-                    dataset_root=dataset_root,
-                    parquet_path=parquet_path,
-                )
-                for frame_id in chunk_ids
-            ]
-            video = _preprocess_frames(bundle, frames, (height, width))
-            encoded = bundle.streaming_vae.encode_chunk(video)
-            latent_chunks.append(
-                _normalize_encoder_output(bundle, encoded).to("cpu")
-            )
-
-    latent = torch.cat(latent_chunks, dim=2)
+        # AutoencoderKLWan.encode 内部按“首帧 1 张、之后每组 4 张”维护 causal cache。
+        latent = bundle.vae.encode(video).latent_dist.mode()
+        latent = _normalize_latent(bundle, latent).to("cpu")
     if latent.shape[0] != 1:
         raise ValueError(f"expected one encoded camera, got {latent.shape}")
     expected_frames = (len(frame_ids) - 1) // TEMPORAL_DOWNSAMPLE + 1
@@ -808,7 +737,6 @@ def extract_latents(args: argparse.Namespace) -> int:
                         parquet_path=parquet_path,
                         height=args.height,
                         width=args.width,
-                        temporal_chunk_size=args.temporal_chunk_size,
                     )
                 )
                 payload = _segment_payload(
@@ -857,12 +785,6 @@ def _build_parser() -> argparse.ArgumentParser:
         default=None,
         help="目标 FPS；默认保持数据集原 FPS，且 source_fps/target_fps 必须为整数",
     )
-    parser.add_argument(
-        "--temporal-chunk-size",
-        type=int,
-        default=32,
-        help="每次送入 causal VAE 的连续视频帧数，必须为 4 的倍数",
-    )
     parser.add_argument("--max-sequence-length", type=int, default=226)
     parser.add_argument("--device", default="cuda")
     parser.add_argument("--text-encoder-device", default="cpu")
@@ -900,11 +822,6 @@ def main(argv: Sequence[str] | None = None) -> int:
     args = parser.parse_args(argv)
     if args.height <= 0 or args.width <= 0:
         parser.error("--height and --width must be positive")
-    if (
-        args.temporal_chunk_size < TEMPORAL_DOWNSAMPLE
-        or args.temporal_chunk_size % TEMPORAL_DOWNSAMPLE != 0
-    ):
-        parser.error("--temporal-chunk-size must be a positive multiple of 4")
     if args.max_sequence_length <= 0:
         parser.error("--max-sequence-length must be positive")
     try:

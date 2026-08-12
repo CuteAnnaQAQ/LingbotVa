@@ -2,6 +2,7 @@ from __future__ import annotations
 
 import contextlib
 import importlib.util
+import inspect
 import io
 import json
 import sys
@@ -23,6 +24,11 @@ extractor = _load_extractor()
 
 
 class RoboMMELatentExtractorTest(unittest.TestCase):
+    def test_camera_encoding_uses_public_wan_vae_api(self):
+        source = inspect.getsource(extractor._encode_camera_segment)
+        self.assertIn("bundle.vae.encode(video)", source)
+        self.assertNotIn("streaming_vae", source)
+
     def test_build_segment_jobs_and_output_path(self):
         jobs = extractor.build_segment_jobs(
             [{

@@ -12,9 +12,20 @@ import argparse
 import json
 import math
 import os
+import sys
 from dataclasses import dataclass, field
 from pathlib import Path
 from typing import Any
+
+
+# 直接运行本文件时，避免同目录的 logging.py 遮蔽 Python 标准库 logging。
+if __package__ in (None, ""):
+    _script_directory = Path(__file__).resolve().parent
+    sys.path[:] = [
+        entry
+        for entry in sys.path
+        if Path(entry or os.getcwd()).resolve() != _script_directory
+    ]
 
 
 REQUIRED_FRAME_FEATURES = (
