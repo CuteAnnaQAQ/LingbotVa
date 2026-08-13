@@ -23,17 +23,19 @@ export ROBOMME_LEROBOT_DATASET_PATH=/DATA/disk0/yry/robomme_data_lerobot
 export LINGBOT_ROBOMME_ACTION_STATS=${ROBOMME_LEROBOT_DATASET_PATH}/robomme_action_stats.json
 
 # 6 卡、20 step 的首次连通性测试。
-export ROBOMME_ENABLE_WANDB=0
+export ROBOMME_ENABLE_WANDB=${ROBOMME_ENABLE_WANDB:-1}
 export ROBOMME_LOAD_WORKER=4
 export ROBOMME_BATCH_SIZE=1
 export ROBOMME_GRADIENT_ACCUMULATION_STEPS=1
 export ROBOMME_NUM_STEPS=20
 export ROBOMME_SAVE_INTERVAL=10
 
-export WANDB_API_KEY="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"
-export WANDB_BASE_URL=${WANDB_BASE_URL:-https://api.wandb.ai}
 export WANDB_TEAM_NAME=${WANDB_TEAM_NAME:-yuanruyi-chonqinguniversity}
 export WANDB_PROJECT=${WANDB_PROJECT:-lingbotva-posttraining-robomme}
+export WANDB_MODE=${WANDB_MODE:-offline}
+export WANDB_NAME=${WANDB_NAME:-robomme-${SLURM_JOB_ID}}
+export WANDB_DIR=${WANDB_DIR:-/DATA/disk0/yry/LingbotVa/results}
+mkdir -p "${WANDB_DIR}"
 
 export TOKENIZERS_PARALLELISM=false
 export PYTORCH_ALLOC_CONF=expandable_segments:True

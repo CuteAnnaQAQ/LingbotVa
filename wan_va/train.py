@@ -1,9 +1,16 @@
 # Copyright 2024-2025 The Robbyant Team Authors. All rights reserved.
 import argparse
+import atexit
 import os
 import sys
 from pathlib import Path
-import wandb
+
+try:
+    import wandb
+    _wandb_import_error = None
+except Exception as exc:
+    wandb = None
+    _wandb_import_error = exc
 
 import torch
 import torch.distributed as dist
@@ -49,19 +56,35 @@ import gc
 
 class Trainer:
     def __init__(self, config):
+        self.wandb_run = None
         if config.enable_wandb and config.rank == 0:
-            wandb.login(host=os.environ['WANDB_BASE_URL'], key=os.environ['WANDB_API_KEY'])
-            self.wandb = wandb
-            self.wandb.init(
-                entity=os.environ["WANDB_TEAM_NAME"],
-                project=os.getenv("WANDB_PROJECT", "va_robotwin"),
-                # dir=log_dir,
-                config=config,
-                mode="online",
-                name='test_lln'
-                # name=os.path.basename(os.path.normpath(job_config.job.dump_folder))
-            )
-            logger.info("WandB logging enabled")
+            if wandb is None:
+                logger.warning(
+                    "WandB is enabled but the package is unavailable; "
+                    "continuing without WandB logging. Import error: %s",
+                    _wandb_import_error,
+                )
+                config.enable_wandb = False
+            else:
+                wandb_mode = os.getenv("WANDB_MODE", "offline")
+                try:
+                    self.wandb_run = wandb.init(
+                        entity=os.getenv("WANDB_TEAM_NAME"),
+                        project=os.getenv("WANDB_PROJECT", "va_robotwin"),
+                        config=config,
+                        mode=wandb_mode,
+                        name=os.getenv("WANDB_NAME"),
+                        dir=os.getenv("WANDB_DIR"),
+                        settings=wandb.Settings(init_timeout=300),
+                    )
+                    atexit.register(self.wandb_run.finish)
+                    logger.info("WandB logging enabled in %s mode", wandb_mode)
+                except Exception:
+                    logger.exception(
+                        "WandB initialization failed; continuing training "
+                        "without WandB logging."
+                    )
+                    config.enable_wandb = False
         self.step = 0
         self.config = config
         self.device = torch.device(f"cuda:{config.local_rank}")
@@ -479,15 +502,23 @@ class Trainer:
                         'grad_norm': f'{total_norm.item():.2f}',
                         'lr': f'{lr:.2e}'
                     })
-                    if self.config.enable_wandb:
-                        self.wandb.log({
-                            'loss_metrics/global_avg_video_loss': latent_loss_show,
-                            'loss_metrics/global_avg_action_loss': action_loss_show,
-                            'loss_metrics/global_max_video_loss': max_latent_loss_show,
-                            'loss_metrics/global_max_action_loss': max_action_loss_show,
-                            'grad_norm': total_norm.item(),
-                            'lr': lr,
-                        }, step=self.step)
+                    if self.wandb_run is not None:
+                        try:
+                            self.wandb_run.log({
+                                'loss_metrics/global_avg_video_loss': latent_loss_show,
+                                'loss_metrics/global_avg_action_loss': action_loss_show,
+                                'loss_metrics/global_max_video_loss': max_latent_loss_show,
+                                'loss_metrics/global_max_action_loss': max_action_loss_show,
+                                'grad_norm': total_norm.item(),
+                                'lr': lr,
+                            }, step=self.step)
+                        except Exception:
+                            logger.exception(
+                                "WandB logging failed at step %s; disabling "
+                                "WandB for the rest of this run.",
+                                self.step,
+                            )
+                            self.wandb_run = None
                 
                 self.step += 1
                 

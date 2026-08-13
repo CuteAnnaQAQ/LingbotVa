@@ -16,10 +16,12 @@ if [ $# -ne 0 ]; then
     overrides="$*"
 fi
 
-export WANDB_API_KEY="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"
-export WANDB_BASE_URL="your url"
-export WANDB_TEAM_NAME="yuanruyi-chonqinguniversity"
-export WANDB_PROJECT="lingbotva-posttraining-robomme"
+export WANDB_TEAM_NAME=${WANDB_TEAM_NAME:-yuanruyi-chonqinguniversity}
+export WANDB_PROJECT=${WANDB_PROJECT:-lingbotva-posttraining-robomme}
+export WANDB_MODE=${WANDB_MODE:-offline}
+export WANDB_NAME=${WANDB_NAME:-${CONFIG_NAME}-${SLURM_JOB_ID:-manual}}
+export WANDB_DIR=${WANDB_DIR:-.}
+mkdir -p "${WANDB_DIR}"
 
 ## node setting
 num_gpu=${NGPU}
