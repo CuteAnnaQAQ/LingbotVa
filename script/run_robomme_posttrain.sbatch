@@ -17,8 +17,13 @@ cd "${SLURM_SUBMIT_DIR}"
 
 NGPU=${NGPU:-6}
 MASTER_PORT=${MASTER_PORT:-29501}
-LOG_RANK=${LOG_RANK:-0}
+LOG_RANK=${LOG_RANK:-}
 ROBOMME_SAVE_ROOT=${ROBOMME_SAVE_ROOT:-/DATA/disk0/yry/LingbotVa/results/lingbotva_robomme_1k}
+
+rank_filter_args=()
+if [[ -n "${LOG_RANK}" ]]; then
+    rank_filter_args+=(--local-ranks-filter="${LOG_RANK}")
+fi
 
 export ROBOMME_LEROBOT_DATASET_PATH=/DATA/disk0/yry/robomme_data_lerobot
 export LINGBOT_ROBOMME_ACTION_STATS=${ROBOMME_LEROBOT_DATASET_PATH}/robomme_action_stats.json
@@ -47,7 +52,7 @@ export PYTORCH_ALLOC_CONF=expandable_segments:True
 echo "启动 6 卡、1,000 optimizer steps RoboMME 后训练"
 srun python -m torch.distributed.run \
     --nproc_per_node="${NGPU}" \
-    --local-ranks-filter="${LOG_RANK}" \
+    "${rank_filter_args[@]}" \
     --master_port="${MASTER_PORT}" \
     --tee=3 \
     -m wan_va.train \

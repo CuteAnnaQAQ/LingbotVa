@@ -108,9 +108,19 @@ class MultiLatentLeRobotDataset(torch.utils.data.Dataset):
 
     def __getitem__(self, idx) -> dict:
         assert idx < len(self)
-        cur_dset = self._datasets[self.item_id_to_dataset_id[idx]]
-        local_idx = idx - self.acc_dset_num[self.item_id_to_dataset_id[idx]]
-        return cur_dset[local_idx]
+        dataset_id = self.item_id_to_dataset_id[idx]
+        cur_dset = self._datasets[dataset_id]
+        local_idx = idx - self.acc_dset_num[dataset_id]
+        try:
+            return cur_dset[local_idx]
+        except Exception as exc:
+            meta = cur_dset.new_metas[local_idx]
+            raise RuntimeError(
+                f"Failed to load dataset index {idx} (dataset_id={dataset_id}, "
+                f"local_index={local_idx}, episode={meta.get('episode_index')}, "
+                f"segment=[{meta.get('start_frame')}, "
+                f"{meta.get('end_frame')}))"
+            ) from exc
 
 class LatentLeRobotDataset(LeRobotDataset):
     def __init__(

@@ -15,6 +15,7 @@ except Exception as exc:
 import torch
 import torch.distributed as dist
 import torch.nn.functional as F
+from torch.distributed.elastic.multiprocessing.errors import record
 from torch.utils.data import DataLoader, DistributedSampler
 from tqdm import tqdm
 from torch.distributed.checkpoint.state_dict import (
@@ -675,6 +676,7 @@ def run(args):
     trainer.train()
 
 
+@record
 def main():
     """Parse arguments and run training."""
     parser = argparse.ArgumentParser(description="Train WAN model for robotics")
