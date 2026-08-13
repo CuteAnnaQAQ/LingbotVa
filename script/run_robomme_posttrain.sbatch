@@ -35,6 +35,7 @@ export ROBOMME_BATCH_SIZE=${ROBOMME_BATCH_SIZE:-1}
 export ROBOMME_GRADIENT_ACCUMULATION_STEPS=${ROBOMME_GRADIENT_ACCUMULATION_STEPS:-6}
 export ROBOMME_NUM_STEPS=${ROBOMME_NUM_STEPS:-1000}
 export ROBOMME_SAVE_INTERVAL=${ROBOMME_SAVE_INTERVAL:-200}
+export ROBOMME_EMPTY_CACHE_EACH_MICRO_STEP=${ROBOMME_EMPTY_CACHE_EACH_MICRO_STEP:-1}
 # Leave empty for a new run. To resume, export a checkpoint directory such as:
 # ROBOMME_RESUME_FROM=/DATA/disk0/yry/LingbotVa/results/lingbotva_robomme_1k/checkpoints/checkpoint_step_600
 export ROBOMME_RESUME_FROM="${ROBOMME_RESUME_FROM:-}"
@@ -47,6 +48,9 @@ export WANDB_DIR=${WANDB_DIR:-/DATA/disk0/yry/LingbotVa/results}
 mkdir -p "${WANDB_DIR}"
 
 export TOKENIZERS_PARALLELISM=false
+# PyTorch 2.9 still reports the CUDA-specific name in OOM diagnostics. Set
+# both names for compatibility across allocator versions.
+export PYTORCH_CUDA_ALLOC_CONF=expandable_segments:True
 export PYTORCH_ALLOC_CONF=expandable_segments:True
 
 echo "启动 6 卡、1,000 optimizer steps RoboMME 后训练"

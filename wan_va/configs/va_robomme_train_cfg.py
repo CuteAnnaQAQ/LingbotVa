@@ -20,6 +20,8 @@ va_robomme_train_cfg.load_worker = int(os.getenv('ROBOMME_LOAD_WORKER', '16'))
 va_robomme_train_cfg.save_interval = int(
     os.getenv('ROBOMME_SAVE_INTERVAL', '200'))
 va_robomme_train_cfg.gc_interval = 50
+va_robomme_train_cfg.empty_cache_each_micro_step = os.getenv(
+    'ROBOMME_EMPTY_CACHE_EACH_MICRO_STEP', '1') == '1'
 va_robomme_train_cfg.cfg_prob = 0.1
 
 va_robomme_train_cfg.learning_rate = 1e-5

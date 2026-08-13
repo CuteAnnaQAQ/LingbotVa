@@ -579,8 +579,40 @@ class Trainer:
         while self.step < self.config.num_steps:
             # Get next batch (handles epoch reset automatically)
             batch = self._get_next_batch()
-            
-            losses = self._train_step(batch, step_in_accumulation)
+            batch_shapes = {
+                key: tuple(value.shape)
+                for key, value in batch.items()
+                if torch.is_tensor(value)
+            }
+            try:
+                losses = self._train_step(batch, step_in_accumulation)
+            except torch.OutOfMemoryError:
+                free_bytes, total_bytes = torch.cuda.mem_get_info(self.device)
+                logger.exception(
+                    "CUDA OOM on rank %s at optimizer step %s, "
+                    "accumulation micro-step %s/%s, batch shapes=%s, "
+                    "free=%.2f GiB, total=%.2f GiB, allocated=%.2f GiB, "
+                    "reserved=%.2f GiB",
+                    self.config.rank,
+                    self.step,
+                    step_in_accumulation + 1,
+                    self.gradient_accumulation_steps,
+                    batch_shapes,
+                    free_bytes / 2**30,
+                    total_bytes / 2**30,
+                    torch.cuda.memory_allocated(self.device) / 2**30,
+                    torch.cuda.memory_reserved(self.device) / 2**30,
+                )
+                raise
+            finally:
+                # convert_input_format() moves this dictionary to CUDA in
+                # place. Drop the outer reference immediately; otherwise the
+                # previous variable-length episode remains live until the next
+                # DataLoader assignment and aggravates allocator fragmentation.
+                del batch
+
+            if getattr(self.config, 'empty_cache_each_micro_step', False):
+                torch.cuda.empty_cache()
             
             # Accumulate losses for logging
             accumulated_latent_losses.append(losses['latent_loss'])
@@ -604,8 +636,8 @@ class Trainer:
 
                 torch.cuda.synchronize()
                 if self.step % self.config.gc_interval == 0:
-                    torch.cuda.empty_cache()
                     gc.collect()
+                    torch.cuda.empty_cache()
 
                 if self.config.rank == 0:
                     total_norm = losses['total_norm']
