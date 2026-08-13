@@ -322,13 +322,16 @@ class Trainer:
         """Train a single batch, returns losses for logging."""
         batch = self.convert_input_format(batch)
         input_dict = self._prepare_input_dict(batch)
-        
-        should_sync = (batch_idx + 1) % self.gradient_accumulation_steps == 0
-        
-        if not should_sync:
-            self.transformer.set_requires_gradient_sync(False)
-        else:
-            self.transformer.set_requires_gradient_sync(True)
+
+        should_update = (
+            (batch_idx + 1) % self.gradient_accumulation_steps == 0
+        )
+
+        # Keep FSDP reduce-scatter enabled for every micro-step so gradients
+        # accumulate in their sharded form. Disabling gradient sync here is
+        # equivalent to FSDP no_sync(): it retains full, unsharded gradients
+        # until the final micro-step and can exhaust GPU memory on four GPUs.
+        self.transformer.set_requires_gradient_sync(True)
 
         output = self.transformer(input_dict, train_mode=True)
         latent_loss, action_loss = self.compute_loss(input_dict, output)
@@ -339,7 +342,7 @@ class Trainer:
         losses = {'latent_loss': latent_loss.detach(), 'action_loss': action_loss.detach()}
         
         # Only update weights after accumulating gradients
-        if should_sync:
+        if should_update:
             total_norm = torch.nn.utils.clip_grad_norm_(self.transformer.parameters(), 2.0)
             self.optimizer.step()
             self.lr_scheduler.step()
