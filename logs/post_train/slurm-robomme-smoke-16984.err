@@ -1,0 +1,62 @@
+
+*****************************************
+Setting OMP_NUM_THREADS environment variable for each process to be 1 in default, to avoid your system being overloaded, please further tune the variable for optimal performance in your application as needed. 
+*****************************************
+[default0]:2026-08-13 10:10:56,630 - root - INFO - Using config: robomme_train
+[default0]:2026-08-13 10:10:56,630 - root - INFO - World size: 4, Local rank: 0
+[default0]:2026-08-13 10:10:56,630 - root - INFO - Loading models...
+[default0]:2026-08-13 10:10:56,630 - root - INFO - Loading transformer...
+[default0]:
+[default0]:Loading checkpoint shards:   0%|          | 0/3 [00:00<?, ?it/s][default0]:
+[default0]:Loading checkpoint shards:  33%|███▎      | 1/3 [00:04<00:08,  4.37s/it][default0]:
+[default0]:Loading checkpoint shards:  67%|██████▋   | 2/3 [00:08<00:04,  4.09s/it][default0]:
+[default0]:Loading checkpoint shards: 100%|██████████| 3/3 [00:08<00:00,  2.42s/it]
+[default0]:Loading checkpoint shards: 100%|██████████| 3/3 [00:08<00:00,  2.90s/it]
+[default0]:Some weights of the model checkpoint at /DATA/disk0/yry/lingbot-va-base/transformer were not used when initializing WanTransformer3DModel: 
+[default0]: ['patch_embedding.bias, patch_embedding.weight']
+[default0]:2026-08-13 10:11:05,368 - root - INFO - Setting up activation checkpointing ...
+[default0]:2026-08-13 10:11:05,369 - root - INFO - Setting up FSDP...
+[default0]:/DATA/disk0/yry/env/lingbotva/lib/python3.10/site-packages/torch/distributed/distributed_c10d.py:4876: UserWarning: barrier(): using the device under current context. You can specify `device_id` in `init_process_group` to mute this warning.
+[default0]:  warnings.warn(  # warn only once
+[default0]:[rank0]:[W813 10:11:05.680736581 ProcessGroupNCCL.cpp:5068] Guessing device ID based on global rank. This can cause a hang if rank to GPU mapping is heterogeneous. You can specify device_id in init_process_group()
+[default0]:2026-08-13 10:11:10,609 - root - INFO - Setting up datasets...
+[default0]:2026-08-13 10:11:36,609 - root - INFO - Starting training for 20 steps...
+[default0]:
+[default0]:Training:   0%|          | 0/20 [00:00<?, ?it/s][default0]:/DATA/disk0/yry/env/lingbotva/lib/python3.10/site-packages/torch/__init__.py:1551: UserWarning: Please use the new API settings to control TF32 behavior, such as torch.backends.cudnn.conv.fp32_precision = 'tf32' or torch.backends.cuda.matmul.fp32_precision = 'ieee'. Old settings, e.g, torch.backends.cuda.matmul.allow_tf32 = True, torch.backends.cudnn.allow_tf32 = True, allowTF32CuDNN() and allowTF32CuBLAS() will be deprecated after Pytorch 2.9. Please see https://pytorch.org/docs/main/notes/cuda.html#tensorfloat-32-tf32-on-ampere-and-later-devices (Triggered internally at /pytorch/aten/src/ATen/Context.cpp:80.)
+[default0]:  return _C._get_float32_matmul_precision()
+[default0]:
+[default0]:Training:   5%|▌         | 1/20 [00:34<10:57, 34.60s/it, latent_loss=0.1124, action_loss=0.6911, step=0, grad_norm=2.80, lr=1.00e-06]/DATA/disk0/yry/env/lingbotva/lib/python3.10/site-packages/torch/distributed/distributed_c10d.py:4876: UserWarning: barrier(): using the device under current context. You can specify `device_id` in `init_process_group` to mute this warning.
+[default0]:  warnings.warn(  # warn only once
+[default0]:
+[default0]:Training:  10%|█         | 2/20 [00:54<08:07, 27.09s/it, latent_loss=0.1238, action_loss=0.0506, step=1, grad_norm=0.30, lr=2.00e-06]/DATA/disk0/yry/env/lingbotva/lib/python3.10/site-packages/torch/distributed/distributed_c10d.py:4876: UserWarning: barrier(): using the device under current context. You can specify `device_id` in `init_process_group` to mute this warning.
+[default0]:  warnings.warn(  # warn only once
+[default0]:
+[default0]:Training:  15%|█▌        | 3/20 [01:09<06:32, 23.09s/it, latent_loss=0.1474, action_loss=0.0531, step=2, grad_norm=0.31, lr=3.00e-06][default0]:
+[default0]:Training:  20%|██        | 4/20 [01:28<05:52, 22.02s/it, latent_loss=0.1155, action_loss=0.0792, step=3, grad_norm=0.33, lr=4.00e-06]/DATA/disk0/yry/env/lingbotva/lib/python3.10/site-packages/torch/distributed/distributed_c10d.py:4876: UserWarning: barrier(): using the device under current context. You can specify `device_id` in `init_process_group` to mute this warning.
+[default0]:  warnings.warn(  # warn only once
+[default0]:
+[default0]:Training:  25%|██▌       | 5/20 [01:39<04:58, 19.89s/it, latent_loss=0.1404, action_loss=0.0361, step=4, grad_norm=0.25, lr=5.00e-06][default0]:
+[default0]:Training:  30%|███       | 6/20 [01:54<04:27, 19.14s/it, latent_loss=0.1182, action_loss=0.0897, step=5, grad_norm=0.30, lr=6.00e-06][default0]:
+[default0]:Training:  35%|███▌      | 7/20 [02:16<04:13, 19.54s/it, latent_loss=0.1232, action_loss=0.0812, step=6, grad_norm=0.34, lr=7.00e-06][default0]:
+[default0]:Training:  40%|████      | 8/20 [02:27<03:41, 18.46s/it, latent_loss=0.1031, action_loss=0.0847, step=7, grad_norm=18.00, lr=8.00e-06][default0]:
+[default0]:Training:  45%|████▌     | 9/20 [02:39<03:14, 17.71s/it, latent_loss=0.1027, action_loss=0.0553, step=8, grad_norm=1.04, lr=9.00e-06] [default0]:
+[default0]:Training:  50%|█████     | 10/20 [02:58<02:58, 17.82s/it, latent_loss=0.0970, action_loss=0.0424, step=9, grad_norm=0.22, lr=1.00e-05]2026-08-13 10:14:34,784 - root - INFO - Starting save model at step 10
+[default0]:2026-08-13 10:14:51,519 - root - INFO - Saving transformer to /DATA/disk0/yry/lingbotva_robomme_smoke/checkpoints/checkpoint_step_10/transformer
+[default0]:2026-08-13 10:14:55,519 - root - INFO - Checkpoint saved successfully at step 10
+[default0]:
+[default0]:Training:  55%|█████▌    | 11/20 [03:26<02:48, 18.73s/it, latent_loss=0.1316, action_loss=0.0689, step=10, grad_norm=0.27, lr=1.00e-05][default0]:
+[default0]:Training:  60%|██████    | 12/20 [03:32<02:21, 17.71s/it, latent_loss=0.0915, action_loss=0.0523, step=11, grad_norm=0.35, lr=1.00e-05][default0]:
+[default0]:Training:  65%|██████▌   | 13/20 [03:45<02:01, 17.33s/it, latent_loss=0.1214, action_loss=0.0539, step=12, grad_norm=0.23, lr=1.00e-05][default0]:
+[default0]:Training:  70%|███████   | 14/20 [03:52<01:39, 16.59s/it, latent_loss=0.1091, action_loss=0.0374, step=13, grad_norm=0.28, lr=1.00e-05][default0]:
+[default0]:Training:  75%|███████▌  | 15/20 [04:01<01:20, 16.08s/it, latent_loss=0.0860, action_loss=0.0634, step=14, grad_norm=0.48, lr=1.00e-05][default0]:
+[default0]:Training:  80%|████████  | 16/20 [04:07<01:01, 15.50s/it, latent_loss=0.1109, action_loss=0.0939, step=15, grad_norm=0.34, lr=1.00e-05][default0]:
+[default0]:Training:  85%|████████▌ | 17/20 [04:24<00:46, 15.58s/it, latent_loss=0.1070, action_loss=0.0617, step=16, grad_norm=0.52, lr=1.00e-05][default0]:
+[default0]:Training:  90%|█████████ | 18/20 [04:42<00:31, 15.70s/it, latent_loss=0.1150, action_loss=0.0406, step=17, grad_norm=0.14, lr=1.00e-05][default0]:
+[default0]:Training:  95%|█████████▌| 19/20 [04:57<00:15, 15.67s/it, latent_loss=0.1123, action_loss=0.0368, step=18, grad_norm=0.16, lr=1.00e-05][default0]:
+[default0]:Training: 100%|██████████| 20/20 [05:13<00:00, 15.69s/it, latent_loss=0.0883, action_loss=0.0271, step=19, grad_norm=0.21, lr=1.00e-05]2026-08-13 10:16:50,317 - root - INFO - Starting save model at step 20
+[default0]:2026-08-13 10:17:07,087 - root - INFO - Saving transformer to /DATA/disk0/yry/lingbotva_robomme_smoke/checkpoints/checkpoint_step_20/transformer
+[default0]:2026-08-13 10:17:10,992 - root - INFO - Checkpoint saved successfully at step 20
+[default0]:
+[default0]:Training: 100%|██████████| 20/20 [05:35<00:00, 16.79s/it, latent_loss=0.0883, action_loss=0.0271, step=19, grad_norm=0.21, lr=1.00e-05]
+[default0]:2026-08-13 10:17:12,450 - root - INFO - Training completed!
+[default0]:[rank0]:[W813 10:17:14.491654323 ProcessGroupNCCL.cpp:1524] Warning: WARNING: destroy_process_group() was not called before program exit, which can leak resources. For more info, please see https://pytorch.org/docs/stable/distributed.html#shutdown (function operator())

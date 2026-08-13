@@ -1,0 +1,1005 @@
+加载 Wan2.2 VAE：/DATA/disk0/yry/lingbot-va-base/vae
+The config attributes {'clip_output': False} were passed to AutoencoderKLWan, but are not expected and will be ignored. Please verify your config.json configuration file.
+加载 UMT5 text encoder：/DATA/disk0/yry/lingbot-va-base/text_encoder
+Loading checkpoint shards:   0%|          | 0/3 [00:00<?, ?it/s]Loading checkpoint shards: 100%|██████████| 3/3 [00:00<00:00, 148.96it/s]
+写入空文本 embedding：/DATA/disk0/yry/robomme_data_lerobot/empty_emb.pt
+[1/200] 读取 episode 800：/DATA/disk0/yry/robomme_data_lerobot/data/chunk-000/episode_000800.parquet
+编码 episode 800 [0,308) camera=image frames=308
+写入：/DATA/disk0/yry/robomme_data_lerobot/latents/chunk-000/image/episode_000800_0_308.pth
+编码 episode 800 [0,308) camera=wrist_image frames=308
+写入：/DATA/disk0/yry/robomme_data_lerobot/latents/chunk-000/wrist_image/episode_000800_0_308.pth
+[2/200] 读取 episode 801：/DATA/disk0/yry/robomme_data_lerobot/data/chunk-000/episode_000801.parquet
+编码 episode 801 [0,276) camera=image frames=276
+写入：/DATA/disk0/yry/robomme_data_lerobot/latents/chunk-000/image/episode_000801_0_276.pth
+编码 episode 801 [0,276) camera=wrist_image frames=276
+写入：/DATA/disk0/yry/robomme_data_lerobot/latents/chunk-000/wrist_image/episode_000801_0_276.pth
+[3/200] 读取 episode 802：/DATA/disk0/yry/robomme_data_lerobot/data/chunk-000/episode_000802.parquet
+编码 episode 802 [0,435) camera=image frames=435
+写入：/DATA/disk0/yry/robomme_data_lerobot/latents/chunk-000/image/episode_000802_0_435.pth
+编码 episode 802 [0,435) camera=wrist_image frames=435
+写入：/DATA/disk0/yry/robomme_data_lerobot/latents/chunk-000/wrist_image/episode_000802_0_435.pth
+[4/200] 读取 episode 803：/DATA/disk0/yry/robomme_data_lerobot/data/chunk-000/episode_000803.parquet
+编码 episode 803 [0,652) camera=image frames=652
+写入：/DATA/disk0/yry/robomme_data_lerobot/latents/chunk-000/image/episode_000803_0_652.pth
+编码 episode 803 [0,652) camera=wrist_image frames=652
+写入：/DATA/disk0/yry/robomme_data_lerobot/latents/chunk-000/wrist_image/episode_000803_0_652.pth
+[5/200] 读取 episode 804：/DATA/disk0/yry/robomme_data_lerobot/data/chunk-000/episode_000804.parquet
+编码 episode 804 [0,320) camera=image frames=320
+写入：/DATA/disk0/yry/robomme_data_lerobot/latents/chunk-000/image/episode_000804_0_320.pth
+编码 episode 804 [0,320) camera=wrist_image frames=320
+写入：/DATA/disk0/yry/robomme_data_lerobot/latents/chunk-000/wrist_image/episode_000804_0_320.pth
+[6/200] 读取 episode 805：/DATA/disk0/yry/robomme_data_lerobot/data/chunk-000/episode_000805.parquet
+编码 episode 805 [0,282) camera=image frames=282
+写入：/DATA/disk0/yry/robomme_data_lerobot/latents/chunk-000/image/episode_000805_0_282.pth
+编码 episode 805 [0,282) camera=wrist_image frames=282
+写入：/DATA/disk0/yry/robomme_data_lerobot/latents/chunk-000/wrist_image/episode_000805_0_282.pth
+[7/200] 读取 episode 806：/DATA/disk0/yry/robomme_data_lerobot/data/chunk-000/episode_000806.parquet
+编码 episode 806 [0,387) camera=image frames=387
+写入：/DATA/disk0/yry/robomme_data_lerobot/latents/chunk-000/image/episode_000806_0_387.pth
+编码 episode 806 [0,387) camera=wrist_image frames=387
+写入：/DATA/disk0/yry/robomme_data_lerobot/latents/chunk-000/wrist_image/episode_000806_0_387.pth
+[8/200] 读取 episode 807：/DATA/disk0/yry/robomme_data_lerobot/data/chunk-000/episode_000807.parquet
+编码 episode 807 [0,530) camera=image frames=530
+写入：/DATA/disk0/yry/robomme_data_lerobot/latents/chunk-000/image/episode_000807_0_530.pth
+编码 episode 807 [0,530) camera=wrist_image frames=530
+写入：/DATA/disk0/yry/robomme_data_lerobot/latents/chunk-000/wrist_image/episode_000807_0_530.pth
+[9/200] 读取 episode 808：/DATA/disk0/yry/robomme_data_lerobot/data/chunk-000/episode_000808.parquet
+编码 episode 808 [0,212) camera=image frames=212
+写入：/DATA/disk0/yry/robomme_data_lerobot/latents/chunk-000/image/episode_000808_0_212.pth
+编码 episode 808 [0,212) camera=wrist_image frames=212
+写入：/DATA/disk0/yry/robomme_data_lerobot/latents/chunk-000/wrist_image/episode_000808_0_212.pth
+[10/200] 读取 episode 809：/DATA/disk0/yry/robomme_data_lerobot/data/chunk-000/episode_000809.parquet
+编码 episode 809 [0,225) camera=image frames=225
+写入：/DATA/disk0/yry/robomme_data_lerobot/latents/chunk-000/image/episode_000809_0_225.pth
+编码 episode 809 [0,225) camera=wrist_image frames=225
+写入：/DATA/disk0/yry/robomme_data_lerobot/latents/chunk-000/wrist_image/episode_000809_0_225.pth
+[11/200] 读取 episode 810：/DATA/disk0/yry/robomme_data_lerobot/data/chunk-000/episode_000810.parquet
+编码 episode 810 [0,415) camera=image frames=415
+写入：/DATA/disk0/yry/robomme_data_lerobot/latents/chunk-000/image/episode_000810_0_415.pth
+编码 episode 810 [0,415) camera=wrist_image frames=415
+写入：/DATA/disk0/yry/robomme_data_lerobot/latents/chunk-000/wrist_image/episode_000810_0_415.pth
+[12/200] 读取 episode 811：/DATA/disk0/yry/robomme_data_lerobot/data/chunk-000/episode_000811.parquet
+编码 episode 811 [0,583) camera=image frames=583
+写入：/DATA/disk0/yry/robomme_data_lerobot/latents/chunk-000/image/episode_000811_0_583.pth
+编码 episode 811 [0,583) camera=wrist_image frames=583
+写入：/DATA/disk0/yry/robomme_data_lerobot/latents/chunk-000/wrist_image/episode_000811_0_583.pth
+[13/200] 读取 episode 812：/DATA/disk0/yry/robomme_data_lerobot/data/chunk-000/episode_000812.parquet
+编码 episode 812 [0,216) camera=image frames=216
+写入：/DATA/disk0/yry/robomme_data_lerobot/latents/chunk-000/image/episode_000812_0_216.pth
+编码 episode 812 [0,216) camera=wrist_image frames=216
+写入：/DATA/disk0/yry/robomme_data_lerobot/latents/chunk-000/wrist_image/episode_000812_0_216.pth
+[14/200] 读取 episode 813：/DATA/disk0/yry/robomme_data_lerobot/data/chunk-000/episode_000813.parquet
+编码 episode 813 [0,219) camera=image frames=219
+写入：/DATA/disk0/yry/robomme_data_lerobot/latents/chunk-000/image/episode_000813_0_219.pth
+编码 episode 813 [0,219) camera=wrist_image frames=219
+写入：/DATA/disk0/yry/robomme_data_lerobot/latents/chunk-000/wrist_image/episode_000813_0_219.pth
+[15/200] 读取 episode 814：/DATA/disk0/yry/robomme_data_lerobot/data/chunk-000/episode_000814.parquet
+编码 episode 814 [0,376) camera=image frames=376
+写入：/DATA/disk0/yry/robomme_data_lerobot/latents/chunk-000/image/episode_000814_0_376.pth
+编码 episode 814 [0,376) camera=wrist_image frames=376
+写入：/DATA/disk0/yry/robomme_data_lerobot/latents/chunk-000/wrist_image/episode_000814_0_376.pth
+[16/200] 读取 episode 815：/DATA/disk0/yry/robomme_data_lerobot/data/chunk-000/episode_000815.parquet
+编码 episode 815 [0,542) camera=image frames=542
+写入：/DATA/disk0/yry/robomme_data_lerobot/latents/chunk-000/image/episode_000815_0_542.pth
+编码 episode 815 [0,542) camera=wrist_image frames=542
+写入：/DATA/disk0/yry/robomme_data_lerobot/latents/chunk-000/wrist_image/episode_000815_0_542.pth
+[17/200] 读取 episode 816：/DATA/disk0/yry/robomme_data_lerobot/data/chunk-000/episode_000816.parquet
+编码 episode 816 [0,226) camera=image frames=226
+写入：/DATA/disk0/yry/robomme_data_lerobot/latents/chunk-000/image/episode_000816_0_226.pth
+编码 episode 816 [0,226) camera=wrist_image frames=226
+写入：/DATA/disk0/yry/robomme_data_lerobot/latents/chunk-000/wrist_image/episode_000816_0_226.pth
+[18/200] 读取 episode 817：/DATA/disk0/yry/robomme_data_lerobot/data/chunk-000/episode_000817.parquet
+编码 episode 817 [0,222) camera=image frames=222
+写入：/DATA/disk0/yry/robomme_data_lerobot/latents/chunk-000/image/episode_000817_0_222.pth
+编码 episode 817 [0,222) camera=wrist_image frames=222
+写入：/DATA/disk0/yry/robomme_data_lerobot/latents/chunk-000/wrist_image/episode_000817_0_222.pth
+[19/200] 读取 episode 818：/DATA/disk0/yry/robomme_data_lerobot/data/chunk-000/episode_000818.parquet
+编码 episode 818 [0,389) camera=image frames=389
+写入：/DATA/disk0/yry/robomme_data_lerobot/latents/chunk-000/image/episode_000818_0_389.pth
+编码 episode 818 [0,389) camera=wrist_image frames=389
+写入：/DATA/disk0/yry/robomme_data_lerobot/latents/chunk-000/wrist_image/episode_000818_0_389.pth
+[20/200] 读取 episode 819：/DATA/disk0/yry/robomme_data_lerobot/data/chunk-000/episode_000819.parquet
+编码 episode 819 [0,569) camera=image frames=569
+写入：/DATA/disk0/yry/robomme_data_lerobot/latents/chunk-000/image/episode_000819_0_569.pth
+编码 episode 819 [0,569) camera=wrist_image frames=569
+写入：/DATA/disk0/yry/robomme_data_lerobot/latents/chunk-000/wrist_image/episode_000819_0_569.pth
+[21/200] 读取 episode 820：/DATA/disk0/yry/robomme_data_lerobot/data/chunk-000/episode_000820.parquet
+编码 episode 820 [0,214) camera=image frames=214
+写入：/DATA/disk0/yry/robomme_data_lerobot/latents/chunk-000/image/episode_000820_0_214.pth
+编码 episode 820 [0,214) camera=wrist_image frames=214
+写入：/DATA/disk0/yry/robomme_data_lerobot/latents/chunk-000/wrist_image/episode_000820_0_214.pth
+[22/200] 读取 episode 821：/DATA/disk0/yry/robomme_data_lerobot/data/chunk-000/episode_000821.parquet
+编码 episode 821 [0,225) camera=image frames=225
+写入：/DATA/disk0/yry/robomme_data_lerobot/latents/chunk-000/image/episode_000821_0_225.pth
+编码 episode 821 [0,225) camera=wrist_image frames=225
+写入：/DATA/disk0/yry/robomme_data_lerobot/latents/chunk-000/wrist_image/episode_000821_0_225.pth
+[23/200] 读取 episode 822：/DATA/disk0/yry/robomme_data_lerobot/data/chunk-000/episode_000822.parquet
+编码 episode 822 [0,384) camera=image frames=384
+写入：/DATA/disk0/yry/robomme_data_lerobot/latents/chunk-000/image/episode_000822_0_384.pth
+编码 episode 822 [0,384) camera=wrist_image frames=384
+写入：/DATA/disk0/yry/robomme_data_lerobot/latents/chunk-000/wrist_image/episode_000822_0_384.pth
+[24/200] 读取 episode 823：/DATA/disk0/yry/robomme_data_lerobot/data/chunk-000/episode_000823.parquet
+编码 episode 823 [0,518) camera=image frames=518
+写入：/DATA/disk0/yry/robomme_data_lerobot/latents/chunk-000/image/episode_000823_0_518.pth
+编码 episode 823 [0,518) camera=wrist_image frames=518
+写入：/DATA/disk0/yry/robomme_data_lerobot/latents/chunk-000/wrist_image/episode_000823_0_518.pth
+[25/200] 读取 episode 824：/DATA/disk0/yry/robomme_data_lerobot/data/chunk-000/episode_000824.parquet
+编码 episode 824 [0,218) camera=image frames=218
+写入：/DATA/disk0/yry/robomme_data_lerobot/latents/chunk-000/image/episode_000824_0_218.pth
+编码 episode 824 [0,218) camera=wrist_image frames=218
+写入：/DATA/disk0/yry/robomme_data_lerobot/latents/chunk-000/wrist_image/episode_000824_0_218.pth
+[26/200] 读取 episode 825：/DATA/disk0/yry/robomme_data_lerobot/data/chunk-000/episode_000825.parquet
+编码 episode 825 [0,223) camera=image frames=223
+写入：/DATA/disk0/yry/robomme_data_lerobot/latents/chunk-000/image/episode_000825_0_223.pth
+编码 episode 825 [0,223) camera=wrist_image frames=223
+写入：/DATA/disk0/yry/robomme_data_lerobot/latents/chunk-000/wrist_image/episode_000825_0_223.pth
+[27/200] 读取 episode 826：/DATA/disk0/yry/robomme_data_lerobot/data/chunk-000/episode_000826.parquet
+编码 episode 826 [0,404) camera=image frames=404
+写入：/DATA/disk0/yry/robomme_data_lerobot/latents/chunk-000/image/episode_000826_0_404.pth
+编码 episode 826 [0,404) camera=wrist_image frames=404
+写入：/DATA/disk0/yry/robomme_data_lerobot/latents/chunk-000/wrist_image/episode_000826_0_404.pth
+[28/200] 读取 episode 827：/DATA/disk0/yry/robomme_data_lerobot/data/chunk-000/episode_000827.parquet
+编码 episode 827 [0,556) camera=image frames=556
+写入：/DATA/disk0/yry/robomme_data_lerobot/latents/chunk-000/image/episode_000827_0_556.pth
+编码 episode 827 [0,556) camera=wrist_image frames=556
+写入：/DATA/disk0/yry/robomme_data_lerobot/latents/chunk-000/wrist_image/episode_000827_0_556.pth
+[29/200] 读取 episode 828：/DATA/disk0/yry/robomme_data_lerobot/data/chunk-000/episode_000828.parquet
+编码 episode 828 [0,202) camera=image frames=202
+写入：/DATA/disk0/yry/robomme_data_lerobot/latents/chunk-000/image/episode_000828_0_202.pth
+编码 episode 828 [0,202) camera=wrist_image frames=202
+写入：/DATA/disk0/yry/robomme_data_lerobot/latents/chunk-000/wrist_image/episode_000828_0_202.pth
+[30/200] 读取 episode 829：/DATA/disk0/yry/robomme_data_lerobot/data/chunk-000/episode_000829.parquet
+编码 episode 829 [0,224) camera=image frames=224
+写入：/DATA/disk0/yry/robomme_data_lerobot/latents/chunk-000/image/episode_000829_0_224.pth
+编码 episode 829 [0,224) camera=wrist_image frames=224
+写入：/DATA/disk0/yry/robomme_data_lerobot/latents/chunk-000/wrist_image/episode_000829_0_224.pth
+[31/200] 读取 episode 830：/DATA/disk0/yry/robomme_data_lerobot/data/chunk-000/episode_000830.parquet
+编码 episode 830 [0,391) camera=image frames=391
+写入：/DATA/disk0/yry/robomme_data_lerobot/latents/chunk-000/image/episode_000830_0_391.pth
+编码 episode 830 [0,391) camera=wrist_image frames=391
+写入：/DATA/disk0/yry/robomme_data_lerobot/latents/chunk-000/wrist_image/episode_000830_0_391.pth
+[32/200] 读取 episode 831：/DATA/disk0/yry/robomme_data_lerobot/data/chunk-000/episode_000831.parquet
+编码 episode 831 [0,509) camera=image frames=509
+写入：/DATA/disk0/yry/robomme_data_lerobot/latents/chunk-000/image/episode_000831_0_509.pth
+编码 episode 831 [0,509) camera=wrist_image frames=509
+写入：/DATA/disk0/yry/robomme_data_lerobot/latents/chunk-000/wrist_image/episode_000831_0_509.pth
+[33/200] 读取 episode 832：/DATA/disk0/yry/robomme_data_lerobot/data/chunk-000/episode_000832.parquet
+编码 episode 832 [0,220) camera=image frames=220
+写入：/DATA/disk0/yry/robomme_data_lerobot/latents/chunk-000/image/episode_000832_0_220.pth
+编码 episode 832 [0,220) camera=wrist_image frames=220
+写入：/DATA/disk0/yry/robomme_data_lerobot/latents/chunk-000/wrist_image/episode_000832_0_220.pth
+[34/200] 读取 episode 833：/DATA/disk0/yry/robomme_data_lerobot/data/chunk-000/episode_000833.parquet
+编码 episode 833 [0,226) camera=image frames=226
+写入：/DATA/disk0/yry/robomme_data_lerobot/latents/chunk-000/image/episode_000833_0_226.pth
+编码 episode 833 [0,226) camera=wrist_image frames=226
+写入：/DATA/disk0/yry/robomme_data_lerobot/latents/chunk-000/wrist_image/episode_000833_0_226.pth
+[35/200] 读取 episode 834：/DATA/disk0/yry/robomme_data_lerobot/data/chunk-000/episode_000834.parquet
+编码 episode 834 [0,394) camera=image frames=394
+写入：/DATA/disk0/yry/robomme_data_lerobot/latents/chunk-000/image/episode_000834_0_394.pth
+编码 episode 834 [0,394) camera=wrist_image frames=394
+写入：/DATA/disk0/yry/robomme_data_lerobot/latents/chunk-000/wrist_image/episode_000834_0_394.pth
+[36/200] 读取 episode 835：/DATA/disk0/yry/robomme_data_lerobot/data/chunk-000/episode_000835.parquet
+编码 episode 835 [0,510) camera=image frames=510
+写入：/DATA/disk0/yry/robomme_data_lerobot/latents/chunk-000/image/episode_000835_0_510.pth
+编码 episode 835 [0,510) camera=wrist_image frames=510
+写入：/DATA/disk0/yry/robomme_data_lerobot/latents/chunk-000/wrist_image/episode_000835_0_510.pth
+[37/200] 读取 episode 836：/DATA/disk0/yry/robomme_data_lerobot/data/chunk-000/episode_000836.parquet
+编码 episode 836 [0,212) camera=image frames=212
+写入：/DATA/disk0/yry/robomme_data_lerobot/latents/chunk-000/image/episode_000836_0_212.pth
+编码 episode 836 [0,212) camera=wrist_image frames=212
+写入：/DATA/disk0/yry/robomme_data_lerobot/latents/chunk-000/wrist_image/episode_000836_0_212.pth
+[38/200] 读取 episode 837：/DATA/disk0/yry/robomme_data_lerobot/data/chunk-000/episode_000837.parquet
+编码 episode 837 [0,225) camera=image frames=225
+写入：/DATA/disk0/yry/robomme_data_lerobot/latents/chunk-000/image/episode_000837_0_225.pth
+编码 episode 837 [0,225) camera=wrist_image frames=225
+写入：/DATA/disk0/yry/robomme_data_lerobot/latents/chunk-000/wrist_image/episode_000837_0_225.pth
+[39/200] 读取 episode 838：/DATA/disk0/yry/robomme_data_lerobot/data/chunk-000/episode_000838.parquet
+编码 episode 838 [0,369) camera=image frames=369
+写入：/DATA/disk0/yry/robomme_data_lerobot/latents/chunk-000/image/episode_000838_0_369.pth
+编码 episode 838 [0,369) camera=wrist_image frames=369
+写入：/DATA/disk0/yry/robomme_data_lerobot/latents/chunk-000/wrist_image/episode_000838_0_369.pth
+[40/200] 读取 episode 839：/DATA/disk0/yry/robomme_data_lerobot/data/chunk-000/episode_000839.parquet
+编码 episode 839 [0,495) camera=image frames=495
+写入：/DATA/disk0/yry/robomme_data_lerobot/latents/chunk-000/image/episode_000839_0_495.pth
+编码 episode 839 [0,495) camera=wrist_image frames=495
+写入：/DATA/disk0/yry/robomme_data_lerobot/latents/chunk-000/wrist_image/episode_000839_0_495.pth
+[41/200] 读取 episode 840：/DATA/disk0/yry/robomme_data_lerobot/data/chunk-000/episode_000840.parquet
+编码 episode 840 [0,256) camera=image frames=256
+写入：/DATA/disk0/yry/robomme_data_lerobot/latents/chunk-000/image/episode_000840_0_256.pth
+编码 episode 840 [0,256) camera=wrist_image frames=256
+写入：/DATA/disk0/yry/robomme_data_lerobot/latents/chunk-000/wrist_image/episode_000840_0_256.pth
+[42/200] 读取 episode 841：/DATA/disk0/yry/robomme_data_lerobot/data/chunk-000/episode_000841.parquet
+编码 episode 841 [0,225) camera=image frames=225
+写入：/DATA/disk0/yry/robomme_data_lerobot/latents/chunk-000/image/episode_000841_0_225.pth
+编码 episode 841 [0,225) camera=wrist_image frames=225
+写入：/DATA/disk0/yry/robomme_data_lerobot/latents/chunk-000/wrist_image/episode_000841_0_225.pth
+[43/200] 读取 episode 842：/DATA/disk0/yry/robomme_data_lerobot/data/chunk-000/episode_000842.parquet
+编码 episode 842 [0,368) camera=image frames=368
+写入：/DATA/disk0/yry/robomme_data_lerobot/latents/chunk-000/image/episode_000842_0_368.pth
+编码 episode 842 [0,368) camera=wrist_image frames=368
+写入：/DATA/disk0/yry/robomme_data_lerobot/latents/chunk-000/wrist_image/episode_000842_0_368.pth
+[44/200] 读取 episode 843：/DATA/disk0/yry/robomme_data_lerobot/data/chunk-000/episode_000843.parquet
+编码 episode 843 [0,523) camera=image frames=523
+写入：/DATA/disk0/yry/robomme_data_lerobot/latents/chunk-000/image/episode_000843_0_523.pth
+编码 episode 843 [0,523) camera=wrist_image frames=523
+写入：/DATA/disk0/yry/robomme_data_lerobot/latents/chunk-000/wrist_image/episode_000843_0_523.pth
+[45/200] 读取 episode 844：/DATA/disk0/yry/robomme_data_lerobot/data/chunk-000/episode_000844.parquet
+编码 episode 844 [0,229) camera=image frames=229
+写入：/DATA/disk0/yry/robomme_data_lerobot/latents/chunk-000/image/episode_000844_0_229.pth
+编码 episode 844 [0,229) camera=wrist_image frames=229
+写入：/DATA/disk0/yry/robomme_data_lerobot/latents/chunk-000/wrist_image/episode_000844_0_229.pth
+[46/200] 读取 episode 845：/DATA/disk0/yry/robomme_data_lerobot/data/chunk-000/episode_000845.parquet
+编码 episode 845 [0,221) camera=image frames=221
+写入：/DATA/disk0/yry/robomme_data_lerobot/latents/chunk-000/image/episode_000845_0_221.pth
+编码 episode 845 [0,221) camera=wrist_image frames=221
+写入：/DATA/disk0/yry/robomme_data_lerobot/latents/chunk-000/wrist_image/episode_000845_0_221.pth
+[47/200] 读取 episode 846：/DATA/disk0/yry/robomme_data_lerobot/data/chunk-000/episode_000846.parquet
+编码 episode 846 [0,378) camera=image frames=378
+写入：/DATA/disk0/yry/robomme_data_lerobot/latents/chunk-000/image/episode_000846_0_378.pth
+编码 episode 846 [0,378) camera=wrist_image frames=378
+写入：/DATA/disk0/yry/robomme_data_lerobot/latents/chunk-000/wrist_image/episode_000846_0_378.pth
+[48/200] 读取 episode 847：/DATA/disk0/yry/robomme_data_lerobot/data/chunk-000/episode_000847.parquet
+编码 episode 847 [0,557) camera=image frames=557
+写入：/DATA/disk0/yry/robomme_data_lerobot/latents/chunk-000/image/episode_000847_0_557.pth
+编码 episode 847 [0,557) camera=wrist_image frames=557
+写入：/DATA/disk0/yry/robomme_data_lerobot/latents/chunk-000/wrist_image/episode_000847_0_557.pth
+[49/200] 读取 episode 848：/DATA/disk0/yry/robomme_data_lerobot/data/chunk-000/episode_000848.parquet
+编码 episode 848 [0,200) camera=image frames=200
+写入：/DATA/disk0/yry/robomme_data_lerobot/latents/chunk-000/image/episode_000848_0_200.pth
+编码 episode 848 [0,200) camera=wrist_image frames=200
+写入：/DATA/disk0/yry/robomme_data_lerobot/latents/chunk-000/wrist_image/episode_000848_0_200.pth
+[50/200] 读取 episode 849：/DATA/disk0/yry/robomme_data_lerobot/data/chunk-000/episode_000849.parquet
+编码 episode 849 [0,231) camera=image frames=231
+写入：/DATA/disk0/yry/robomme_data_lerobot/latents/chunk-000/image/episode_000849_0_231.pth
+编码 episode 849 [0,231) camera=wrist_image frames=231
+写入：/DATA/disk0/yry/robomme_data_lerobot/latents/chunk-000/wrist_image/episode_000849_0_231.pth
+[51/200] 读取 episode 850：/DATA/disk0/yry/robomme_data_lerobot/data/chunk-000/episode_000850.parquet
+编码 episode 850 [0,421) camera=image frames=421
+写入：/DATA/disk0/yry/robomme_data_lerobot/latents/chunk-000/image/episode_000850_0_421.pth
+编码 episode 850 [0,421) camera=wrist_image frames=421
+写入：/DATA/disk0/yry/robomme_data_lerobot/latents/chunk-000/wrist_image/episode_000850_0_421.pth
+[52/200] 读取 episode 851：/DATA/disk0/yry/robomme_data_lerobot/data/chunk-000/episode_000851.parquet
+编码 episode 851 [0,526) camera=image frames=526
+写入：/DATA/disk0/yry/robomme_data_lerobot/latents/chunk-000/image/episode_000851_0_526.pth
+编码 episode 851 [0,526) camera=wrist_image frames=526
+写入：/DATA/disk0/yry/robomme_data_lerobot/latents/chunk-000/wrist_image/episode_000851_0_526.pth
+[53/200] 读取 episode 852：/DATA/disk0/yry/robomme_data_lerobot/data/chunk-000/episode_000852.parquet
+编码 episode 852 [0,224) camera=image frames=224
+写入：/DATA/disk0/yry/robomme_data_lerobot/latents/chunk-000/image/episode_000852_0_224.pth
+编码 episode 852 [0,224) camera=wrist_image frames=224
+写入：/DATA/disk0/yry/robomme_data_lerobot/latents/chunk-000/wrist_image/episode_000852_0_224.pth
+[54/200] 读取 episode 853：/DATA/disk0/yry/robomme_data_lerobot/data/chunk-000/episode_000853.parquet
+编码 episode 853 [0,247) camera=image frames=247
+写入：/DATA/disk0/yry/robomme_data_lerobot/latents/chunk-000/image/episode_000853_0_247.pth
+编码 episode 853 [0,247) camera=wrist_image frames=247
+写入：/DATA/disk0/yry/robomme_data_lerobot/latents/chunk-000/wrist_image/episode_000853_0_247.pth
+[55/200] 读取 episode 854：/DATA/disk0/yry/robomme_data_lerobot/data/chunk-000/episode_000854.parquet
+编码 episode 854 [0,378) camera=image frames=378
+写入：/DATA/disk0/yry/robomme_data_lerobot/latents/chunk-000/image/episode_000854_0_378.pth
+编码 episode 854 [0,378) camera=wrist_image frames=378
+写入：/DATA/disk0/yry/robomme_data_lerobot/latents/chunk-000/wrist_image/episode_000854_0_378.pth
+[56/200] 读取 episode 855：/DATA/disk0/yry/robomme_data_lerobot/data/chunk-000/episode_000855.parquet
+编码 episode 855 [0,539) camera=image frames=539
+写入：/DATA/disk0/yry/robomme_data_lerobot/latents/chunk-000/image/episode_000855_0_539.pth
+编码 episode 855 [0,539) camera=wrist_image frames=539
+写入：/DATA/disk0/yry/robomme_data_lerobot/latents/chunk-000/wrist_image/episode_000855_0_539.pth
+[57/200] 读取 episode 856：/DATA/disk0/yry/robomme_data_lerobot/data/chunk-000/episode_000856.parquet
+编码 episode 856 [0,222) camera=image frames=222
+写入：/DATA/disk0/yry/robomme_data_lerobot/latents/chunk-000/image/episode_000856_0_222.pth
+编码 episode 856 [0,222) camera=wrist_image frames=222
+写入：/DATA/disk0/yry/robomme_data_lerobot/latents/chunk-000/wrist_image/episode_000856_0_222.pth
+[58/200] 读取 episode 857：/DATA/disk0/yry/robomme_data_lerobot/data/chunk-000/episode_000857.parquet
+编码 episode 857 [0,223) camera=image frames=223
+写入：/DATA/disk0/yry/robomme_data_lerobot/latents/chunk-000/image/episode_000857_0_223.pth
+编码 episode 857 [0,223) camera=wrist_image frames=223
+写入：/DATA/disk0/yry/robomme_data_lerobot/latents/chunk-000/wrist_image/episode_000857_0_223.pth
+[59/200] 读取 episode 858：/DATA/disk0/yry/robomme_data_lerobot/data/chunk-000/episode_000858.parquet
+编码 episode 858 [0,400) camera=image frames=400
+写入：/DATA/disk0/yry/robomme_data_lerobot/latents/chunk-000/image/episode_000858_0_400.pth
+编码 episode 858 [0,400) camera=wrist_image frames=400
+写入：/DATA/disk0/yry/robomme_data_lerobot/latents/chunk-000/wrist_image/episode_000858_0_400.pth
+[60/200] 读取 episode 859：/DATA/disk0/yry/robomme_data_lerobot/data/chunk-000/episode_000859.parquet
+编码 episode 859 [0,554) camera=image frames=554
+写入：/DATA/disk0/yry/robomme_data_lerobot/latents/chunk-000/image/episode_000859_0_554.pth
+编码 episode 859 [0,554) camera=wrist_image frames=554
+写入：/DATA/disk0/yry/robomme_data_lerobot/latents/chunk-000/wrist_image/episode_000859_0_554.pth
+[61/200] 读取 episode 860：/DATA/disk0/yry/robomme_data_lerobot/data/chunk-000/episode_000860.parquet
+编码 episode 860 [0,225) camera=image frames=225
+写入：/DATA/disk0/yry/robomme_data_lerobot/latents/chunk-000/image/episode_000860_0_225.pth
+编码 episode 860 [0,225) camera=wrist_image frames=225
+写入：/DATA/disk0/yry/robomme_data_lerobot/latents/chunk-000/wrist_image/episode_000860_0_225.pth
+[62/200] 读取 episode 861：/DATA/disk0/yry/robomme_data_lerobot/data/chunk-000/episode_000861.parquet
+编码 episode 861 [0,243) camera=image frames=243
+写入：/DATA/disk0/yry/robomme_data_lerobot/latents/chunk-000/image/episode_000861_0_243.pth
+编码 episode 861 [0,243) camera=wrist_image frames=243
+写入：/DATA/disk0/yry/robomme_data_lerobot/latents/chunk-000/wrist_image/episode_000861_0_243.pth
+[63/200] 读取 episode 862：/DATA/disk0/yry/robomme_data_lerobot/data/chunk-000/episode_000862.parquet
+编码 episode 862 [0,371) camera=image frames=371
+写入：/DATA/disk0/yry/robomme_data_lerobot/latents/chunk-000/image/episode_000862_0_371.pth
+编码 episode 862 [0,371) camera=wrist_image frames=371
+写入：/DATA/disk0/yry/robomme_data_lerobot/latents/chunk-000/wrist_image/episode_000862_0_371.pth
+[64/200] 读取 episode 863：/DATA/disk0/yry/robomme_data_lerobot/data/chunk-000/episode_000863.parquet
+编码 episode 863 [0,526) camera=image frames=526
+写入：/DATA/disk0/yry/robomme_data_lerobot/latents/chunk-000/image/episode_000863_0_526.pth
+编码 episode 863 [0,526) camera=wrist_image frames=526
+写入：/DATA/disk0/yry/robomme_data_lerobot/latents/chunk-000/wrist_image/episode_000863_0_526.pth
+[65/200] 读取 episode 864：/DATA/disk0/yry/robomme_data_lerobot/data/chunk-000/episode_000864.parquet
+编码 episode 864 [0,199) camera=image frames=199
+写入：/DATA/disk0/yry/robomme_data_lerobot/latents/chunk-000/image/episode_000864_0_199.pth
+编码 episode 864 [0,199) camera=wrist_image frames=199
+写入：/DATA/disk0/yry/robomme_data_lerobot/latents/chunk-000/wrist_image/episode_000864_0_199.pth
+[66/200] 读取 episode 865：/DATA/disk0/yry/robomme_data_lerobot/data/chunk-000/episode_000865.parquet
+编码 episode 865 [0,204) camera=image frames=204
+写入：/DATA/disk0/yry/robomme_data_lerobot/latents/chunk-000/image/episode_000865_0_204.pth
+编码 episode 865 [0,204) camera=wrist_image frames=204
+写入：/DATA/disk0/yry/robomme_data_lerobot/latents/chunk-000/wrist_image/episode_000865_0_204.pth
+[67/200] 读取 episode 866：/DATA/disk0/yry/robomme_data_lerobot/data/chunk-000/episode_000866.parquet
+编码 episode 866 [0,362) camera=image frames=362
+写入：/DATA/disk0/yry/robomme_data_lerobot/latents/chunk-000/image/episode_000866_0_362.pth
+编码 episode 866 [0,362) camera=wrist_image frames=362
+写入：/DATA/disk0/yry/robomme_data_lerobot/latents/chunk-000/wrist_image/episode_000866_0_362.pth
+[68/200] 读取 episode 867：/DATA/disk0/yry/robomme_data_lerobot/data/chunk-000/episode_000867.parquet
+编码 episode 867 [0,529) camera=image frames=529
+写入：/DATA/disk0/yry/robomme_data_lerobot/latents/chunk-000/image/episode_000867_0_529.pth
+编码 episode 867 [0,529) camera=wrist_image frames=529
+写入：/DATA/disk0/yry/robomme_data_lerobot/latents/chunk-000/wrist_image/episode_000867_0_529.pth
+[69/200] 读取 episode 868：/DATA/disk0/yry/robomme_data_lerobot/data/chunk-000/episode_000868.parquet
+编码 episode 868 [0,233) camera=image frames=233
+写入：/DATA/disk0/yry/robomme_data_lerobot/latents/chunk-000/image/episode_000868_0_233.pth
+编码 episode 868 [0,233) camera=wrist_image frames=233
+写入：/DATA/disk0/yry/robomme_data_lerobot/latents/chunk-000/wrist_image/episode_000868_0_233.pth
+[70/200] 读取 episode 869：/DATA/disk0/yry/robomme_data_lerobot/data/chunk-000/episode_000869.parquet
+编码 episode 869 [0,214) camera=image frames=214
+写入：/DATA/disk0/yry/robomme_data_lerobot/latents/chunk-000/image/episode_000869_0_214.pth
+编码 episode 869 [0,214) camera=wrist_image frames=214
+写入：/DATA/disk0/yry/robomme_data_lerobot/latents/chunk-000/wrist_image/episode_000869_0_214.pth
+[71/200] 读取 episode 870：/DATA/disk0/yry/robomme_data_lerobot/data/chunk-000/episode_000870.parquet
+编码 episode 870 [0,393) camera=image frames=393
+写入：/DATA/disk0/yry/robomme_data_lerobot/latents/chunk-000/image/episode_000870_0_393.pth
+编码 episode 870 [0,393) camera=wrist_image frames=393
+写入：/DATA/disk0/yry/robomme_data_lerobot/latents/chunk-000/wrist_image/episode_000870_0_393.pth
+[72/200] 读取 episode 871：/DATA/disk0/yry/robomme_data_lerobot/data/chunk-000/episode_000871.parquet
+编码 episode 871 [0,554) camera=image frames=554
+写入：/DATA/disk0/yry/robomme_data_lerobot/latents/chunk-000/image/episode_000871_0_554.pth
+编码 episode 871 [0,554) camera=wrist_image frames=554
+写入：/DATA/disk0/yry/robomme_data_lerobot/latents/chunk-000/wrist_image/episode_000871_0_554.pth
+[73/200] 读取 episode 872：/DATA/disk0/yry/robomme_data_lerobot/data/chunk-000/episode_000872.parquet
+编码 episode 872 [0,223) camera=image frames=223
+写入：/DATA/disk0/yry/robomme_data_lerobot/latents/chunk-000/image/episode_000872_0_223.pth
+编码 episode 872 [0,223) camera=wrist_image frames=223
+写入：/DATA/disk0/yry/robomme_data_lerobot/latents/chunk-000/wrist_image/episode_000872_0_223.pth
+[74/200] 读取 episode 873：/DATA/disk0/yry/robomme_data_lerobot/data/chunk-000/episode_000873.parquet
+编码 episode 873 [0,235) camera=image frames=235
+写入：/DATA/disk0/yry/robomme_data_lerobot/latents/chunk-000/image/episode_000873_0_235.pth
+编码 episode 873 [0,235) camera=wrist_image frames=235
+写入：/DATA/disk0/yry/robomme_data_lerobot/latents/chunk-000/wrist_image/episode_000873_0_235.pth
+[75/200] 读取 episode 874：/DATA/disk0/yry/robomme_data_lerobot/data/chunk-000/episode_000874.parquet
+编码 episode 874 [0,400) camera=image frames=400
+写入：/DATA/disk0/yry/robomme_data_lerobot/latents/chunk-000/image/episode_000874_0_400.pth
+编码 episode 874 [0,400) camera=wrist_image frames=400
+写入：/DATA/disk0/yry/robomme_data_lerobot/latents/chunk-000/wrist_image/episode_000874_0_400.pth
+[76/200] 读取 episode 875：/DATA/disk0/yry/robomme_data_lerobot/data/chunk-000/episode_000875.parquet
+编码 episode 875 [0,565) camera=image frames=565
+写入：/DATA/disk0/yry/robomme_data_lerobot/latents/chunk-000/image/episode_000875_0_565.pth
+编码 episode 875 [0,565) camera=wrist_image frames=565
+写入：/DATA/disk0/yry/robomme_data_lerobot/latents/chunk-000/wrist_image/episode_000875_0_565.pth
+[77/200] 读取 episode 876：/DATA/disk0/yry/robomme_data_lerobot/data/chunk-000/episode_000876.parquet
+编码 episode 876 [0,223) camera=image frames=223
+写入：/DATA/disk0/yry/robomme_data_lerobot/latents/chunk-000/image/episode_000876_0_223.pth
+编码 episode 876 [0,223) camera=wrist_image frames=223
+写入：/DATA/disk0/yry/robomme_data_lerobot/latents/chunk-000/wrist_image/episode_000876_0_223.pth
+[78/200] 读取 episode 877：/DATA/disk0/yry/robomme_data_lerobot/data/chunk-000/episode_000877.parquet
+编码 episode 877 [0,228) camera=image frames=228
+写入：/DATA/disk0/yry/robomme_data_lerobot/latents/chunk-000/image/episode_000877_0_228.pth
+编码 episode 877 [0,228) camera=wrist_image frames=228
+写入：/DATA/disk0/yry/robomme_data_lerobot/latents/chunk-000/wrist_image/episode_000877_0_228.pth
+[79/200] 读取 episode 878：/DATA/disk0/yry/robomme_data_lerobot/data/chunk-000/episode_000878.parquet
+编码 episode 878 [0,361) camera=image frames=361
+写入：/DATA/disk0/yry/robomme_data_lerobot/latents/chunk-000/image/episode_000878_0_361.pth
+编码 episode 878 [0,361) camera=wrist_image frames=361
+写入：/DATA/disk0/yry/robomme_data_lerobot/latents/chunk-000/wrist_image/episode_000878_0_361.pth
+[80/200] 读取 episode 879：/DATA/disk0/yry/robomme_data_lerobot/data/chunk-000/episode_000879.parquet
+编码 episode 879 [0,576) camera=image frames=576
+写入：/DATA/disk0/yry/robomme_data_lerobot/latents/chunk-000/image/episode_000879_0_576.pth
+编码 episode 879 [0,576) camera=wrist_image frames=576
+写入：/DATA/disk0/yry/robomme_data_lerobot/latents/chunk-000/wrist_image/episode_000879_0_576.pth
+[81/200] 读取 episode 880：/DATA/disk0/yry/robomme_data_lerobot/data/chunk-000/episode_000880.parquet
+编码 episode 880 [0,222) camera=image frames=222
+写入：/DATA/disk0/yry/robomme_data_lerobot/latents/chunk-000/image/episode_000880_0_222.pth
+编码 episode 880 [0,222) camera=wrist_image frames=222
+写入：/DATA/disk0/yry/robomme_data_lerobot/latents/chunk-000/wrist_image/episode_000880_0_222.pth
+[82/200] 读取 episode 881：/DATA/disk0/yry/robomme_data_lerobot/data/chunk-000/episode_000881.parquet
+编码 episode 881 [0,224) camera=image frames=224
+写入：/DATA/disk0/yry/robomme_data_lerobot/latents/chunk-000/image/episode_000881_0_224.pth
+编码 episode 881 [0,224) camera=wrist_image frames=224
+写入：/DATA/disk0/yry/robomme_data_lerobot/latents/chunk-000/wrist_image/episode_000881_0_224.pth
+[83/200] 读取 episode 882：/DATA/disk0/yry/robomme_data_lerobot/data/chunk-000/episode_000882.parquet
+编码 episode 882 [0,377) camera=image frames=377
+写入：/DATA/disk0/yry/robomme_data_lerobot/latents/chunk-000/image/episode_000882_0_377.pth
+编码 episode 882 [0,377) camera=wrist_image frames=377
+写入：/DATA/disk0/yry/robomme_data_lerobot/latents/chunk-000/wrist_image/episode_000882_0_377.pth
+[84/200] 读取 episode 883：/DATA/disk0/yry/robomme_data_lerobot/data/chunk-000/episode_000883.parquet
+编码 episode 883 [0,543) camera=image frames=543
+写入：/DATA/disk0/yry/robomme_data_lerobot/latents/chunk-000/image/episode_000883_0_543.pth
+编码 episode 883 [0,543) camera=wrist_image frames=543
+写入：/DATA/disk0/yry/robomme_data_lerobot/latents/chunk-000/wrist_image/episode_000883_0_543.pth
+[85/200] 读取 episode 884：/DATA/disk0/yry/robomme_data_lerobot/data/chunk-000/episode_000884.parquet
+编码 episode 884 [0,200) camera=image frames=200
+写入：/DATA/disk0/yry/robomme_data_lerobot/latents/chunk-000/image/episode_000884_0_200.pth
+编码 episode 884 [0,200) camera=wrist_image frames=200
+写入：/DATA/disk0/yry/robomme_data_lerobot/latents/chunk-000/wrist_image/episode_000884_0_200.pth
+[86/200] 读取 episode 885：/DATA/disk0/yry/robomme_data_lerobot/data/chunk-000/episode_000885.parquet
+编码 episode 885 [0,211) camera=image frames=211
+写入：/DATA/disk0/yry/robomme_data_lerobot/latents/chunk-000/image/episode_000885_0_211.pth
+编码 episode 885 [0,211) camera=wrist_image frames=211
+写入：/DATA/disk0/yry/robomme_data_lerobot/latents/chunk-000/wrist_image/episode_000885_0_211.pth
+[87/200] 读取 episode 886：/DATA/disk0/yry/robomme_data_lerobot/data/chunk-000/episode_000886.parquet
+编码 episode 886 [0,383) camera=image frames=383
+写入：/DATA/disk0/yry/robomme_data_lerobot/latents/chunk-000/image/episode_000886_0_383.pth
+编码 episode 886 [0,383) camera=wrist_image frames=383
+写入：/DATA/disk0/yry/robomme_data_lerobot/latents/chunk-000/wrist_image/episode_000886_0_383.pth
+[88/200] 读取 episode 887：/DATA/disk0/yry/robomme_data_lerobot/data/chunk-000/episode_000887.parquet
+编码 episode 887 [0,496) camera=image frames=496
+写入：/DATA/disk0/yry/robomme_data_lerobot/latents/chunk-000/image/episode_000887_0_496.pth
+编码 episode 887 [0,496) camera=wrist_image frames=496
+写入：/DATA/disk0/yry/robomme_data_lerobot/latents/chunk-000/wrist_image/episode_000887_0_496.pth
+[89/200] 读取 episode 888：/DATA/disk0/yry/robomme_data_lerobot/data/chunk-000/episode_000888.parquet
+编码 episode 888 [0,232) camera=image frames=232
+写入：/DATA/disk0/yry/robomme_data_lerobot/latents/chunk-000/image/episode_000888_0_232.pth
+编码 episode 888 [0,232) camera=wrist_image frames=232
+写入：/DATA/disk0/yry/robomme_data_lerobot/latents/chunk-000/wrist_image/episode_000888_0_232.pth
+[90/200] 读取 episode 889：/DATA/disk0/yry/robomme_data_lerobot/data/chunk-000/episode_000889.parquet
+编码 episode 889 [0,249) camera=image frames=249
+写入：/DATA/disk0/yry/robomme_data_lerobot/latents/chunk-000/image/episode_000889_0_249.pth
+编码 episode 889 [0,249) camera=wrist_image frames=249
+写入：/DATA/disk0/yry/robomme_data_lerobot/latents/chunk-000/wrist_image/episode_000889_0_249.pth
+[91/200] 读取 episode 890：/DATA/disk0/yry/robomme_data_lerobot/data/chunk-000/episode_000890.parquet
+编码 episode 890 [0,343) camera=image frames=343
+写入：/DATA/disk0/yry/robomme_data_lerobot/latents/chunk-000/image/episode_000890_0_343.pth
+编码 episode 890 [0,343) camera=wrist_image frames=343
+写入：/DATA/disk0/yry/robomme_data_lerobot/latents/chunk-000/wrist_image/episode_000890_0_343.pth
+[92/200] 读取 episode 891：/DATA/disk0/yry/robomme_data_lerobot/data/chunk-000/episode_000891.parquet
+编码 episode 891 [0,492) camera=image frames=492
+写入：/DATA/disk0/yry/robomme_data_lerobot/latents/chunk-000/image/episode_000891_0_492.pth
+编码 episode 891 [0,492) camera=wrist_image frames=492
+写入：/DATA/disk0/yry/robomme_data_lerobot/latents/chunk-000/wrist_image/episode_000891_0_492.pth
+[93/200] 读取 episode 892：/DATA/disk0/yry/robomme_data_lerobot/data/chunk-000/episode_000892.parquet
+编码 episode 892 [0,233) camera=image frames=233
+写入：/DATA/disk0/yry/robomme_data_lerobot/latents/chunk-000/image/episode_000892_0_233.pth
+编码 episode 892 [0,233) camera=wrist_image frames=233
+写入：/DATA/disk0/yry/robomme_data_lerobot/latents/chunk-000/wrist_image/episode_000892_0_233.pth
+[94/200] 读取 episode 893：/DATA/disk0/yry/robomme_data_lerobot/data/chunk-000/episode_000893.parquet
+编码 episode 893 [0,217) camera=image frames=217
+写入：/DATA/disk0/yry/robomme_data_lerobot/latents/chunk-000/image/episode_000893_0_217.pth
+编码 episode 893 [0,217) camera=wrist_image frames=217
+写入：/DATA/disk0/yry/robomme_data_lerobot/latents/chunk-000/wrist_image/episode_000893_0_217.pth
+[95/200] 读取 episode 894：/DATA/disk0/yry/robomme_data_lerobot/data/chunk-000/episode_000894.parquet
+编码 episode 894 [0,386) camera=image frames=386
+写入：/DATA/disk0/yry/robomme_data_lerobot/latents/chunk-000/image/episode_000894_0_386.pth
+编码 episode 894 [0,386) camera=wrist_image frames=386
+写入：/DATA/disk0/yry/robomme_data_lerobot/latents/chunk-000/wrist_image/episode_000894_0_386.pth
+[96/200] 读取 episode 895：/DATA/disk0/yry/robomme_data_lerobot/data/chunk-000/episode_000895.parquet
+编码 episode 895 [0,545) camera=image frames=545
+写入：/DATA/disk0/yry/robomme_data_lerobot/latents/chunk-000/image/episode_000895_0_545.pth
+编码 episode 895 [0,545) camera=wrist_image frames=545
+写入：/DATA/disk0/yry/robomme_data_lerobot/latents/chunk-000/wrist_image/episode_000895_0_545.pth
+[97/200] 读取 episode 896：/DATA/disk0/yry/robomme_data_lerobot/data/chunk-000/episode_000896.parquet
+编码 episode 896 [0,213) camera=image frames=213
+写入：/DATA/disk0/yry/robomme_data_lerobot/latents/chunk-000/image/episode_000896_0_213.pth
+编码 episode 896 [0,213) camera=wrist_image frames=213
+写入：/DATA/disk0/yry/robomme_data_lerobot/latents/chunk-000/wrist_image/episode_000896_0_213.pth
+[98/200] 读取 episode 897：/DATA/disk0/yry/robomme_data_lerobot/data/chunk-000/episode_000897.parquet
+编码 episode 897 [0,237) camera=image frames=237
+写入：/DATA/disk0/yry/robomme_data_lerobot/latents/chunk-000/image/episode_000897_0_237.pth
+编码 episode 897 [0,237) camera=wrist_image frames=237
+写入：/DATA/disk0/yry/robomme_data_lerobot/latents/chunk-000/wrist_image/episode_000897_0_237.pth
+[99/200] 读取 episode 898：/DATA/disk0/yry/robomme_data_lerobot/data/chunk-000/episode_000898.parquet
+编码 episode 898 [0,357) camera=image frames=357
+写入：/DATA/disk0/yry/robomme_data_lerobot/latents/chunk-000/image/episode_000898_0_357.pth
+编码 episode 898 [0,357) camera=wrist_image frames=357
+写入：/DATA/disk0/yry/robomme_data_lerobot/latents/chunk-000/wrist_image/episode_000898_0_357.pth
+[100/200] 读取 episode 899：/DATA/disk0/yry/robomme_data_lerobot/data/chunk-000/episode_000899.parquet
+编码 episode 899 [0,511) camera=image frames=511
+写入：/DATA/disk0/yry/robomme_data_lerobot/latents/chunk-000/image/episode_000899_0_511.pth
+编码 episode 899 [0,511) camera=wrist_image frames=511
+写入：/DATA/disk0/yry/robomme_data_lerobot/latents/chunk-000/wrist_image/episode_000899_0_511.pth
+[101/200] 读取 episode 900：/DATA/disk0/yry/robomme_data_lerobot/data/chunk-000/episode_000900.parquet
+编码 episode 900 [0,425) camera=image frames=425
+写入：/DATA/disk0/yry/robomme_data_lerobot/latents/chunk-000/image/episode_000900_0_425.pth
+编码 episode 900 [0,425) camera=wrist_image frames=425
+写入：/DATA/disk0/yry/robomme_data_lerobot/latents/chunk-000/wrist_image/episode_000900_0_425.pth
+[102/200] 读取 episode 901：/DATA/disk0/yry/robomme_data_lerobot/data/chunk-000/episode_000901.parquet
+编码 episode 901 [0,441) camera=image frames=441
+写入：/DATA/disk0/yry/robomme_data_lerobot/latents/chunk-000/image/episode_000901_0_441.pth
+编码 episode 901 [0,441) camera=wrist_image frames=441
+写入：/DATA/disk0/yry/robomme_data_lerobot/latents/chunk-000/wrist_image/episode_000901_0_441.pth
+[103/200] 读取 episode 902：/DATA/disk0/yry/robomme_data_lerobot/data/chunk-000/episode_000902.parquet
+编码 episode 902 [0,478) camera=image frames=478
+写入：/DATA/disk0/yry/robomme_data_lerobot/latents/chunk-000/image/episode_000902_0_478.pth
+编码 episode 902 [0,478) camera=wrist_image frames=478
+写入：/DATA/disk0/yry/robomme_data_lerobot/latents/chunk-000/wrist_image/episode_000902_0_478.pth
+[104/200] 读取 episode 903：/DATA/disk0/yry/robomme_data_lerobot/data/chunk-000/episode_000903.parquet
+编码 episode 903 [0,266) camera=image frames=266
+写入：/DATA/disk0/yry/robomme_data_lerobot/latents/chunk-000/image/episode_000903_0_266.pth
+编码 episode 903 [0,266) camera=wrist_image frames=266
+写入：/DATA/disk0/yry/robomme_data_lerobot/latents/chunk-000/wrist_image/episode_000903_0_266.pth
+[105/200] 读取 episode 904：/DATA/disk0/yry/robomme_data_lerobot/data/chunk-000/episode_000904.parquet
+编码 episode 904 [0,440) camera=image frames=440
+写入：/DATA/disk0/yry/robomme_data_lerobot/latents/chunk-000/image/episode_000904_0_440.pth
+编码 episode 904 [0,440) camera=wrist_image frames=440
+写入：/DATA/disk0/yry/robomme_data_lerobot/latents/chunk-000/wrist_image/episode_000904_0_440.pth
+[106/200] 读取 episode 905：/DATA/disk0/yry/robomme_data_lerobot/data/chunk-000/episode_000905.parquet
+编码 episode 905 [0,429) camera=image frames=429
+写入：/DATA/disk0/yry/robomme_data_lerobot/latents/chunk-000/image/episode_000905_0_429.pth
+编码 episode 905 [0,429) camera=wrist_image frames=429
+写入：/DATA/disk0/yry/robomme_data_lerobot/latents/chunk-000/wrist_image/episode_000905_0_429.pth
+[107/200] 读取 episode 906：/DATA/disk0/yry/robomme_data_lerobot/data/chunk-000/episode_000906.parquet
+编码 episode 906 [0,443) camera=image frames=443
+写入：/DATA/disk0/yry/robomme_data_lerobot/latents/chunk-000/image/episode_000906_0_443.pth
+编码 episode 906 [0,443) camera=wrist_image frames=443
+写入：/DATA/disk0/yry/robomme_data_lerobot/latents/chunk-000/wrist_image/episode_000906_0_443.pth
+[108/200] 读取 episode 907：/DATA/disk0/yry/robomme_data_lerobot/data/chunk-000/episode_000907.parquet
+编码 episode 907 [0,512) camera=image frames=512
+写入：/DATA/disk0/yry/robomme_data_lerobot/latents/chunk-000/image/episode_000907_0_512.pth
+编码 episode 907 [0,512) camera=wrist_image frames=512
+写入：/DATA/disk0/yry/robomme_data_lerobot/latents/chunk-000/wrist_image/episode_000907_0_512.pth
+[109/200] 读取 episode 908：/DATA/disk0/yry/robomme_data_lerobot/data/chunk-000/episode_000908.parquet
+编码 episode 908 [0,279) camera=image frames=279
+写入：/DATA/disk0/yry/robomme_data_lerobot/latents/chunk-000/image/episode_000908_0_279.pth
+编码 episode 908 [0,279) camera=wrist_image frames=279
+写入：/DATA/disk0/yry/robomme_data_lerobot/latents/chunk-000/wrist_image/episode_000908_0_279.pth
+[110/200] 读取 episode 909：/DATA/disk0/yry/robomme_data_lerobot/data/chunk-000/episode_000909.parquet
+编码 episode 909 [0,279) camera=image frames=279
+写入：/DATA/disk0/yry/robomme_data_lerobot/latents/chunk-000/image/episode_000909_0_279.pth
+编码 episode 909 [0,279) camera=wrist_image frames=279
+写入：/DATA/disk0/yry/robomme_data_lerobot/latents/chunk-000/wrist_image/episode_000909_0_279.pth
+[111/200] 读取 episode 910：/DATA/disk0/yry/robomme_data_lerobot/data/chunk-000/episode_000910.parquet
+编码 episode 910 [0,482) camera=image frames=482
+写入：/DATA/disk0/yry/robomme_data_lerobot/latents/chunk-000/image/episode_000910_0_482.pth
+编码 episode 910 [0,482) camera=wrist_image frames=482
+写入：/DATA/disk0/yry/robomme_data_lerobot/latents/chunk-000/wrist_image/episode_000910_0_482.pth
+[112/200] 读取 episode 911：/DATA/disk0/yry/robomme_data_lerobot/data/chunk-000/episode_000911.parquet
+编码 episode 911 [0,257) camera=image frames=257
+写入：/DATA/disk0/yry/robomme_data_lerobot/latents/chunk-000/image/episode_000911_0_257.pth
+编码 episode 911 [0,257) camera=wrist_image frames=257
+写入：/DATA/disk0/yry/robomme_data_lerobot/latents/chunk-000/wrist_image/episode_000911_0_257.pth
+[113/200] 读取 episode 912：/DATA/disk0/yry/robomme_data_lerobot/data/chunk-000/episode_000912.parquet
+编码 episode 912 [0,515) camera=image frames=515
+写入：/DATA/disk0/yry/robomme_data_lerobot/latents/chunk-000/image/episode_000912_0_515.pth
+编码 episode 912 [0,515) camera=wrist_image frames=515
+写入：/DATA/disk0/yry/robomme_data_lerobot/latents/chunk-000/wrist_image/episode_000912_0_515.pth
+[114/200] 读取 episode 913：/DATA/disk0/yry/robomme_data_lerobot/data/chunk-000/episode_000913.parquet
+编码 episode 913 [0,439) camera=image frames=439
+写入：/DATA/disk0/yry/robomme_data_lerobot/latents/chunk-000/image/episode_000913_0_439.pth
+编码 episode 913 [0,439) camera=wrist_image frames=439
+写入：/DATA/disk0/yry/robomme_data_lerobot/latents/chunk-000/wrist_image/episode_000913_0_439.pth
+[115/200] 读取 episode 914：/DATA/disk0/yry/robomme_data_lerobot/data/chunk-000/episode_000914.parquet
+编码 episode 914 [0,451) camera=image frames=451
+写入：/DATA/disk0/yry/robomme_data_lerobot/latents/chunk-000/image/episode_000914_0_451.pth
+编码 episode 914 [0,451) camera=wrist_image frames=451
+写入：/DATA/disk0/yry/robomme_data_lerobot/latents/chunk-000/wrist_image/episode_000914_0_451.pth
+[116/200] 读取 episode 915：/DATA/disk0/yry/robomme_data_lerobot/data/chunk-000/episode_000915.parquet
+编码 episode 915 [0,272) camera=image frames=272
+写入：/DATA/disk0/yry/robomme_data_lerobot/latents/chunk-000/image/episode_000915_0_272.pth
+编码 episode 915 [0,272) camera=wrist_image frames=272
+写入：/DATA/disk0/yry/robomme_data_lerobot/latents/chunk-000/wrist_image/episode_000915_0_272.pth
+[117/200] 读取 episode 916：/DATA/disk0/yry/robomme_data_lerobot/data/chunk-000/episode_000916.parquet
+编码 episode 916 [0,434) camera=image frames=434
+写入：/DATA/disk0/yry/robomme_data_lerobot/latents/chunk-000/image/episode_000916_0_434.pth
+编码 episode 916 [0,434) camera=wrist_image frames=434
+写入：/DATA/disk0/yry/robomme_data_lerobot/latents/chunk-000/wrist_image/episode_000916_0_434.pth
+[118/200] 读取 episode 917：/DATA/disk0/yry/robomme_data_lerobot/data/chunk-000/episode_000917.parquet
+编码 episode 917 [0,491) camera=image frames=491
+写入：/DATA/disk0/yry/robomme_data_lerobot/latents/chunk-000/image/episode_000917_0_491.pth
+编码 episode 917 [0,491) camera=wrist_image frames=491
+写入：/DATA/disk0/yry/robomme_data_lerobot/latents/chunk-000/wrist_image/episode_000917_0_491.pth
+[119/200] 读取 episode 918：/DATA/disk0/yry/robomme_data_lerobot/data/chunk-000/episode_000918.parquet
+编码 episode 918 [0,470) camera=image frames=470
+写入：/DATA/disk0/yry/robomme_data_lerobot/latents/chunk-000/image/episode_000918_0_470.pth
+编码 episode 918 [0,470) camera=wrist_image frames=470
+写入：/DATA/disk0/yry/robomme_data_lerobot/latents/chunk-000/wrist_image/episode_000918_0_470.pth
+[120/200] 读取 episode 919：/DATA/disk0/yry/robomme_data_lerobot/data/chunk-000/episode_000919.parquet
+编码 episode 919 [0,267) camera=image frames=267
+写入：/DATA/disk0/yry/robomme_data_lerobot/latents/chunk-000/image/episode_000919_0_267.pth
+编码 episode 919 [0,267) camera=wrist_image frames=267
+写入：/DATA/disk0/yry/robomme_data_lerobot/latents/chunk-000/wrist_image/episode_000919_0_267.pth
+[121/200] 读取 episode 920：/DATA/disk0/yry/robomme_data_lerobot/data/chunk-000/episode_000920.parquet
+编码 episode 920 [0,256) camera=image frames=256
+写入：/DATA/disk0/yry/robomme_data_lerobot/latents/chunk-000/image/episode_000920_0_256.pth
+编码 episode 920 [0,256) camera=wrist_image frames=256
+写入：/DATA/disk0/yry/robomme_data_lerobot/latents/chunk-000/wrist_image/episode_000920_0_256.pth
+[122/200] 读取 episode 921：/DATA/disk0/yry/robomme_data_lerobot/data/chunk-000/episode_000921.parquet
+编码 episode 921 [0,285) camera=image frames=285
+写入：/DATA/disk0/yry/robomme_data_lerobot/latents/chunk-000/image/episode_000921_0_285.pth
+编码 episode 921 [0,285) camera=wrist_image frames=285
+写入：/DATA/disk0/yry/robomme_data_lerobot/latents/chunk-000/wrist_image/episode_000921_0_285.pth
+[123/200] 读取 episode 922：/DATA/disk0/yry/robomme_data_lerobot/data/chunk-000/episode_000922.parquet
+编码 episode 922 [0,451) camera=image frames=451
+写入：/DATA/disk0/yry/robomme_data_lerobot/latents/chunk-000/image/episode_000922_0_451.pth
+编码 episode 922 [0,451) camera=wrist_image frames=451
+写入：/DATA/disk0/yry/robomme_data_lerobot/latents/chunk-000/wrist_image/episode_000922_0_451.pth
+[124/200] 读取 episode 923：/DATA/disk0/yry/robomme_data_lerobot/data/chunk-000/episode_000923.parquet
+编码 episode 923 [0,475) camera=image frames=475
+写入：/DATA/disk0/yry/robomme_data_lerobot/latents/chunk-000/image/episode_000923_0_475.pth
+编码 episode 923 [0,475) camera=wrist_image frames=475
+写入：/DATA/disk0/yry/robomme_data_lerobot/latents/chunk-000/wrist_image/episode_000923_0_475.pth
+[125/200] 读取 episode 924：/DATA/disk0/yry/robomme_data_lerobot/data/chunk-000/episode_000924.parquet
+编码 episode 924 [0,422) camera=image frames=422
+写入：/DATA/disk0/yry/robomme_data_lerobot/latents/chunk-000/image/episode_000924_0_422.pth
+编码 episode 924 [0,422) camera=wrist_image frames=422
+写入：/DATA/disk0/yry/robomme_data_lerobot/latents/chunk-000/wrist_image/episode_000924_0_422.pth
+[126/200] 读取 episode 925：/DATA/disk0/yry/robomme_data_lerobot/data/chunk-000/episode_000925.parquet
+编码 episode 925 [0,458) camera=image frames=458
+写入：/DATA/disk0/yry/robomme_data_lerobot/latents/chunk-000/image/episode_000925_0_458.pth
+编码 episode 925 [0,458) camera=wrist_image frames=458
+写入：/DATA/disk0/yry/robomme_data_lerobot/latents/chunk-000/wrist_image/episode_000925_0_458.pth
+[127/200] 读取 episode 926：/DATA/disk0/yry/robomme_data_lerobot/data/chunk-000/episode_000926.parquet
+编码 episode 926 [0,267) camera=image frames=267
+写入：/DATA/disk0/yry/robomme_data_lerobot/latents/chunk-000/image/episode_000926_0_267.pth
+编码 episode 926 [0,267) camera=wrist_image frames=267
+写入：/DATA/disk0/yry/robomme_data_lerobot/latents/chunk-000/wrist_image/episode_000926_0_267.pth
+[128/200] 读取 episode 927：/DATA/disk0/yry/robomme_data_lerobot/data/chunk-000/episode_000927.parquet
+编码 episode 927 [0,448) camera=image frames=448
+写入：/DATA/disk0/yry/robomme_data_lerobot/latents/chunk-000/image/episode_000927_0_448.pth
+编码 episode 927 [0,448) camera=wrist_image frames=448
+写入：/DATA/disk0/yry/robomme_data_lerobot/latents/chunk-000/wrist_image/episode_000927_0_448.pth
+[129/200] 读取 episode 928：/DATA/disk0/yry/robomme_data_lerobot/data/chunk-000/episode_000928.parquet
+编码 episode 928 [0,457) camera=image frames=457
+写入：/DATA/disk0/yry/robomme_data_lerobot/latents/chunk-000/image/episode_000928_0_457.pth
+编码 episode 928 [0,457) camera=wrist_image frames=457
+写入：/DATA/disk0/yry/robomme_data_lerobot/latents/chunk-000/wrist_image/episode_000928_0_457.pth
+[130/200] 读取 episode 929：/DATA/disk0/yry/robomme_data_lerobot/data/chunk-000/episode_000929.parquet
+编码 episode 929 [0,252) camera=image frames=252
+写入：/DATA/disk0/yry/robomme_data_lerobot/latents/chunk-000/image/episode_000929_0_252.pth
+编码 episode 929 [0,252) camera=wrist_image frames=252
+写入：/DATA/disk0/yry/robomme_data_lerobot/latents/chunk-000/wrist_image/episode_000929_0_252.pth
+[131/200] 读取 episode 930：/DATA/disk0/yry/robomme_data_lerobot/data/chunk-000/episode_000930.parquet
+编码 episode 930 [0,428) camera=image frames=428
+写入：/DATA/disk0/yry/robomme_data_lerobot/latents/chunk-000/image/episode_000930_0_428.pth
+编码 episode 930 [0,428) camera=wrist_image frames=428
+写入：/DATA/disk0/yry/robomme_data_lerobot/latents/chunk-000/wrist_image/episode_000930_0_428.pth
+[132/200] 读取 episode 931：/DATA/disk0/yry/robomme_data_lerobot/data/chunk-000/episode_000931.parquet
+编码 episode 931 [0,266) camera=image frames=266
+写入：/DATA/disk0/yry/robomme_data_lerobot/latents/chunk-000/image/episode_000931_0_266.pth
+编码 episode 931 [0,266) camera=wrist_image frames=266
+写入：/DATA/disk0/yry/robomme_data_lerobot/latents/chunk-000/wrist_image/episode_000931_0_266.pth
+[133/200] 读取 episode 932：/DATA/disk0/yry/robomme_data_lerobot/data/chunk-000/episode_000932.parquet
+编码 episode 932 [0,492) camera=image frames=492
+写入：/DATA/disk0/yry/robomme_data_lerobot/latents/chunk-000/image/episode_000932_0_492.pth
+编码 episode 932 [0,492) camera=wrist_image frames=492
+写入：/DATA/disk0/yry/robomme_data_lerobot/latents/chunk-000/wrist_image/episode_000932_0_492.pth
+[134/200] 读取 episode 933：/DATA/disk0/yry/robomme_data_lerobot/data/chunk-000/episode_000933.parquet
+编码 episode 933 [0,450) camera=image frames=450
+写入：/DATA/disk0/yry/robomme_data_lerobot/latents/chunk-000/image/episode_000933_0_450.pth
+编码 episode 933 [0,450) camera=wrist_image frames=450
+写入：/DATA/disk0/yry/robomme_data_lerobot/latents/chunk-000/wrist_image/episode_000933_0_450.pth
+[135/200] 读取 episode 934：/DATA/disk0/yry/robomme_data_lerobot/data/chunk-000/episode_000934.parquet
+编码 episode 934 [0,463) camera=image frames=463
+写入：/DATA/disk0/yry/robomme_data_lerobot/latents/chunk-000/image/episode_000934_0_463.pth
+编码 episode 934 [0,463) camera=wrist_image frames=463
+写入：/DATA/disk0/yry/robomme_data_lerobot/latents/chunk-000/wrist_image/episode_000934_0_463.pth
+[136/200] 读取 episode 935：/DATA/disk0/yry/robomme_data_lerobot/data/chunk-000/episode_000935.parquet
+编码 episode 935 [0,436) camera=image frames=436
+写入：/DATA/disk0/yry/robomme_data_lerobot/latents/chunk-000/image/episode_000935_0_436.pth
+编码 episode 935 [0,436) camera=wrist_image frames=436
+写入：/DATA/disk0/yry/robomme_data_lerobot/latents/chunk-000/wrist_image/episode_000935_0_436.pth
+[137/200] 读取 episode 936：/DATA/disk0/yry/robomme_data_lerobot/data/chunk-000/episode_000936.parquet
+编码 episode 936 [0,445) camera=image frames=445
+写入：/DATA/disk0/yry/robomme_data_lerobot/latents/chunk-000/image/episode_000936_0_445.pth
+编码 episode 936 [0,445) camera=wrist_image frames=445
+写入：/DATA/disk0/yry/robomme_data_lerobot/latents/chunk-000/wrist_image/episode_000936_0_445.pth
+[138/200] 读取 episode 937：/DATA/disk0/yry/robomme_data_lerobot/data/chunk-000/episode_000937.parquet
+编码 episode 937 [0,450) camera=image frames=450
+写入：/DATA/disk0/yry/robomme_data_lerobot/latents/chunk-000/image/episode_000937_0_450.pth
+编码 episode 937 [0,450) camera=wrist_image frames=450
+写入：/DATA/disk0/yry/robomme_data_lerobot/latents/chunk-000/wrist_image/episode_000937_0_450.pth
+[139/200] 读取 episode 938：/DATA/disk0/yry/robomme_data_lerobot/data/chunk-000/episode_000938.parquet
+编码 episode 938 [0,446) camera=image frames=446
+写入：/DATA/disk0/yry/robomme_data_lerobot/latents/chunk-000/image/episode_000938_0_446.pth
+编码 episode 938 [0,446) camera=wrist_image frames=446
+写入：/DATA/disk0/yry/robomme_data_lerobot/latents/chunk-000/wrist_image/episode_000938_0_446.pth
+[140/200] 读取 episode 939：/DATA/disk0/yry/robomme_data_lerobot/data/chunk-000/episode_000939.parquet
+编码 episode 939 [0,285) camera=image frames=285
+写入：/DATA/disk0/yry/robomme_data_lerobot/latents/chunk-000/image/episode_000939_0_285.pth
+编码 episode 939 [0,285) camera=wrist_image frames=285
+写入：/DATA/disk0/yry/robomme_data_lerobot/latents/chunk-000/wrist_image/episode_000939_0_285.pth
+[141/200] 读取 episode 940：/DATA/disk0/yry/robomme_data_lerobot/data/chunk-000/episode_000940.parquet
+编码 episode 940 [0,272) camera=image frames=272
+写入：/DATA/disk0/yry/robomme_data_lerobot/latents/chunk-000/image/episode_000940_0_272.pth
+编码 episode 940 [0,272) camera=wrist_image frames=272
+写入：/DATA/disk0/yry/robomme_data_lerobot/latents/chunk-000/wrist_image/episode_000940_0_272.pth
+[142/200] 读取 episode 941：/DATA/disk0/yry/robomme_data_lerobot/data/chunk-000/episode_000941.parquet
+编码 episode 941 [0,480) camera=image frames=480
+写入：/DATA/disk0/yry/robomme_data_lerobot/latents/chunk-000/image/episode_000941_0_480.pth
+编码 episode 941 [0,480) camera=wrist_image frames=480
+写入：/DATA/disk0/yry/robomme_data_lerobot/latents/chunk-000/wrist_image/episode_000941_0_480.pth
+[143/200] 读取 episode 942：/DATA/disk0/yry/robomme_data_lerobot/data/chunk-000/episode_000942.parquet
+编码 episode 942 [0,520) camera=image frames=520
+写入：/DATA/disk0/yry/robomme_data_lerobot/latents/chunk-000/image/episode_000942_0_520.pth
+编码 episode 942 [0,520) camera=wrist_image frames=520
+写入：/DATA/disk0/yry/robomme_data_lerobot/latents/chunk-000/wrist_image/episode_000942_0_520.pth
+[144/200] 读取 episode 943：/DATA/disk0/yry/robomme_data_lerobot/data/chunk-000/episode_000943.parquet
+编码 episode 943 [0,480) camera=image frames=480
+写入：/DATA/disk0/yry/robomme_data_lerobot/latents/chunk-000/image/episode_000943_0_480.pth
+编码 episode 943 [0,480) camera=wrist_image frames=480
+写入：/DATA/disk0/yry/robomme_data_lerobot/latents/chunk-000/wrist_image/episode_000943_0_480.pth
+[145/200] 读取 episode 944：/DATA/disk0/yry/robomme_data_lerobot/data/chunk-000/episode_000944.parquet
+编码 episode 944 [0,259) camera=image frames=259
+写入：/DATA/disk0/yry/robomme_data_lerobot/latents/chunk-000/image/episode_000944_0_259.pth
+编码 episode 944 [0,259) camera=wrist_image frames=259
+写入：/DATA/disk0/yry/robomme_data_lerobot/latents/chunk-000/wrist_image/episode_000944_0_259.pth
+[146/200] 读取 episode 945：/DATA/disk0/yry/robomme_data_lerobot/data/chunk-000/episode_000945.parquet
+编码 episode 945 [0,454) camera=image frames=454
+写入：/DATA/disk0/yry/robomme_data_lerobot/latents/chunk-000/image/episode_000945_0_454.pth
+编码 episode 945 [0,454) camera=wrist_image frames=454
+写入：/DATA/disk0/yry/robomme_data_lerobot/latents/chunk-000/wrist_image/episode_000945_0_454.pth
+[147/200] 读取 episode 946：/DATA/disk0/yry/robomme_data_lerobot/data/chunk-000/episode_000946.parquet
+编码 episode 946 [0,282) camera=image frames=282
+写入：/DATA/disk0/yry/robomme_data_lerobot/latents/chunk-000/image/episode_000946_0_282.pth
+编码 episode 946 [0,282) camera=wrist_image frames=282
+写入：/DATA/disk0/yry/robomme_data_lerobot/latents/chunk-000/wrist_image/episode_000946_0_282.pth
+[148/200] 读取 episode 947：/DATA/disk0/yry/robomme_data_lerobot/data/chunk-000/episode_000947.parquet
+编码 episode 947 [0,460) camera=image frames=460
+写入：/DATA/disk0/yry/robomme_data_lerobot/latents/chunk-000/image/episode_000947_0_460.pth
+编码 episode 947 [0,460) camera=wrist_image frames=460
+写入：/DATA/disk0/yry/robomme_data_lerobot/latents/chunk-000/wrist_image/episode_000947_0_460.pth
+[149/200] 读取 episode 948：/DATA/disk0/yry/robomme_data_lerobot/data/chunk-000/episode_000948.parquet
+编码 episode 948 [0,430) camera=image frames=430
+写入：/DATA/disk0/yry/robomme_data_lerobot/latents/chunk-000/image/episode_000948_0_430.pth
+编码 episode 948 [0,430) camera=wrist_image frames=430
+写入：/DATA/disk0/yry/robomme_data_lerobot/latents/chunk-000/wrist_image/episode_000948_0_430.pth
+[150/200] 读取 episode 949：/DATA/disk0/yry/robomme_data_lerobot/data/chunk-000/episode_000949.parquet
+编码 episode 949 [0,488) camera=image frames=488
+写入：/DATA/disk0/yry/robomme_data_lerobot/latents/chunk-000/image/episode_000949_0_488.pth
+编码 episode 949 [0,488) camera=wrist_image frames=488
+写入：/DATA/disk0/yry/robomme_data_lerobot/latents/chunk-000/wrist_image/episode_000949_0_488.pth
+[151/200] 读取 episode 950：/DATA/disk0/yry/robomme_data_lerobot/data/chunk-000/episode_000950.parquet
+编码 episode 950 [0,257) camera=image frames=257
+写入：/DATA/disk0/yry/robomme_data_lerobot/latents/chunk-000/image/episode_000950_0_257.pth
+编码 episode 950 [0,257) camera=wrist_image frames=257
+写入：/DATA/disk0/yry/robomme_data_lerobot/latents/chunk-000/wrist_image/episode_000950_0_257.pth
+[152/200] 读取 episode 951：/DATA/disk0/yry/robomme_data_lerobot/data/chunk-000/episode_000951.parquet
+编码 episode 951 [0,445) camera=image frames=445
+写入：/DATA/disk0/yry/robomme_data_lerobot/latents/chunk-000/image/episode_000951_0_445.pth
+编码 episode 951 [0,445) camera=wrist_image frames=445
+写入：/DATA/disk0/yry/robomme_data_lerobot/latents/chunk-000/wrist_image/episode_000951_0_445.pth
+[153/200] 读取 episode 952：/DATA/disk0/yry/robomme_data_lerobot/data/chunk-000/episode_000952.parquet
+编码 episode 952 [0,449) camera=image frames=449
+写入：/DATA/disk0/yry/robomme_data_lerobot/latents/chunk-000/image/episode_000952_0_449.pth
+编码 episode 952 [0,449) camera=wrist_image frames=449
+写入：/DATA/disk0/yry/robomme_data_lerobot/latents/chunk-000/wrist_image/episode_000952_0_449.pth
+[154/200] 读取 episode 953：/DATA/disk0/yry/robomme_data_lerobot/data/chunk-000/episode_000953.parquet
+编码 episode 953 [0,428) camera=image frames=428
+写入：/DATA/disk0/yry/robomme_data_lerobot/latents/chunk-000/image/episode_000953_0_428.pth
+编码 episode 953 [0,428) camera=wrist_image frames=428
+写入：/DATA/disk0/yry/robomme_data_lerobot/latents/chunk-000/wrist_image/episode_000953_0_428.pth
+[155/200] 读取 episode 954：/DATA/disk0/yry/robomme_data_lerobot/data/chunk-000/episode_000954.parquet
+编码 episode 954 [0,420) camera=image frames=420
+写入：/DATA/disk0/yry/robomme_data_lerobot/latents/chunk-000/image/episode_000954_0_420.pth
+编码 episode 954 [0,420) camera=wrist_image frames=420
+写入：/DATA/disk0/yry/robomme_data_lerobot/latents/chunk-000/wrist_image/episode_000954_0_420.pth
+[156/200] 读取 episode 955：/DATA/disk0/yry/robomme_data_lerobot/data/chunk-000/episode_000955.parquet
+编码 episode 955 [0,482) camera=image frames=482
+写入：/DATA/disk0/yry/robomme_data_lerobot/latents/chunk-000/image/episode_000955_0_482.pth
+编码 episode 955 [0,482) camera=wrist_image frames=482
+写入：/DATA/disk0/yry/robomme_data_lerobot/latents/chunk-000/wrist_image/episode_000955_0_482.pth
+[157/200] 读取 episode 956：/DATA/disk0/yry/robomme_data_lerobot/data/chunk-000/episode_000956.parquet
+编码 episode 956 [0,471) camera=image frames=471
+写入：/DATA/disk0/yry/robomme_data_lerobot/latents/chunk-000/image/episode_000956_0_471.pth
+编码 episode 956 [0,471) camera=wrist_image frames=471
+写入：/DATA/disk0/yry/robomme_data_lerobot/latents/chunk-000/wrist_image/episode_000956_0_471.pth
+[158/200] 读取 episode 957：/DATA/disk0/yry/robomme_data_lerobot/data/chunk-000/episode_000957.parquet
+编码 episode 957 [0,276) camera=image frames=276
+写入：/DATA/disk0/yry/robomme_data_lerobot/latents/chunk-000/image/episode_000957_0_276.pth
+编码 episode 957 [0,276) camera=wrist_image frames=276
+写入：/DATA/disk0/yry/robomme_data_lerobot/latents/chunk-000/wrist_image/episode_000957_0_276.pth
+[159/200] 读取 episode 958：/DATA/disk0/yry/robomme_data_lerobot/data/chunk-000/episode_000958.parquet
+编码 episode 958 [0,276) camera=image frames=276
+写入：/DATA/disk0/yry/robomme_data_lerobot/latents/chunk-000/image/episode_000958_0_276.pth
+编码 episode 958 [0,276) camera=wrist_image frames=276
+写入：/DATA/disk0/yry/robomme_data_lerobot/latents/chunk-000/wrist_image/episode_000958_0_276.pth
+[160/200] 读取 episode 959：/DATA/disk0/yry/robomme_data_lerobot/data/chunk-000/episode_000959.parquet
+编码 episode 959 [0,429) camera=image frames=429
+写入：/DATA/disk0/yry/robomme_data_lerobot/latents/chunk-000/image/episode_000959_0_429.pth
+编码 episode 959 [0,429) camera=wrist_image frames=429
+写入：/DATA/disk0/yry/robomme_data_lerobot/latents/chunk-000/wrist_image/episode_000959_0_429.pth
+[161/200] 读取 episode 960：/DATA/disk0/yry/robomme_data_lerobot/data/chunk-000/episode_000960.parquet
+编码 episode 960 [0,453) camera=image frames=453
+写入：/DATA/disk0/yry/robomme_data_lerobot/latents/chunk-000/image/episode_000960_0_453.pth
+编码 episode 960 [0,453) camera=wrist_image frames=453
+写入：/DATA/disk0/yry/robomme_data_lerobot/latents/chunk-000/wrist_image/episode_000960_0_453.pth
+[162/200] 读取 episode 961：/DATA/disk0/yry/robomme_data_lerobot/data/chunk-000/episode_000961.parquet
+编码 episode 961 [0,440) camera=image frames=440
+写入：/DATA/disk0/yry/robomme_data_lerobot/latents/chunk-000/image/episode_000961_0_440.pth
+编码 episode 961 [0,440) camera=wrist_image frames=440
+写入：/DATA/disk0/yry/robomme_data_lerobot/latents/chunk-000/wrist_image/episode_000961_0_440.pth
+[163/200] 读取 episode 962：/DATA/disk0/yry/robomme_data_lerobot/data/chunk-000/episode_000962.parquet
+编码 episode 962 [0,406) camera=image frames=406
+写入：/DATA/disk0/yry/robomme_data_lerobot/latents/chunk-000/image/episode_000962_0_406.pth
+编码 episode 962 [0,406) camera=wrist_image frames=406
+写入：/DATA/disk0/yry/robomme_data_lerobot/latents/chunk-000/wrist_image/episode_000962_0_406.pth
+[164/200] 读取 episode 963：/DATA/disk0/yry/robomme_data_lerobot/data/chunk-000/episode_000963.parquet
+编码 episode 963 [0,486) camera=image frames=486
+写入：/DATA/disk0/yry/robomme_data_lerobot/latents/chunk-000/image/episode_000963_0_486.pth
+编码 episode 963 [0,486) camera=wrist_image frames=486
+写入：/DATA/disk0/yry/robomme_data_lerobot/latents/chunk-000/wrist_image/episode_000963_0_486.pth
+[165/200] 读取 episode 964：/DATA/disk0/yry/robomme_data_lerobot/data/chunk-000/episode_000964.parquet
+编码 episode 964 [0,446) camera=image frames=446
+写入：/DATA/disk0/yry/robomme_data_lerobot/latents/chunk-000/image/episode_000964_0_446.pth
+编码 episode 964 [0,446) camera=wrist_image frames=446
+写入：/DATA/disk0/yry/robomme_data_lerobot/latents/chunk-000/wrist_image/episode_000964_0_446.pth
+[166/200] 读取 episode 965：/DATA/disk0/yry/robomme_data_lerobot/data/chunk-000/episode_000965.parquet
+编码 episode 965 [0,442) camera=image frames=442
+写入：/DATA/disk0/yry/robomme_data_lerobot/latents/chunk-000/image/episode_000965_0_442.pth
+编码 episode 965 [0,442) camera=wrist_image frames=442
+写入：/DATA/disk0/yry/robomme_data_lerobot/latents/chunk-000/wrist_image/episode_000965_0_442.pth
+[167/200] 读取 episode 966：/DATA/disk0/yry/robomme_data_lerobot/data/chunk-000/episode_000966.parquet
+编码 episode 966 [0,481) camera=image frames=481
+写入：/DATA/disk0/yry/robomme_data_lerobot/latents/chunk-000/image/episode_000966_0_481.pth
+编码 episode 966 [0,481) camera=wrist_image frames=481
+写入：/DATA/disk0/yry/robomme_data_lerobot/latents/chunk-000/wrist_image/episode_000966_0_481.pth
+[168/200] 读取 episode 967：/DATA/disk0/yry/robomme_data_lerobot/data/chunk-000/episode_000967.parquet
+编码 episode 967 [0,279) camera=image frames=279
+写入：/DATA/disk0/yry/robomme_data_lerobot/latents/chunk-000/image/episode_000967_0_279.pth
+编码 episode 967 [0,279) camera=wrist_image frames=279
+写入：/DATA/disk0/yry/robomme_data_lerobot/latents/chunk-000/wrist_image/episode_000967_0_279.pth
+[169/200] 读取 episode 968：/DATA/disk0/yry/robomme_data_lerobot/data/chunk-000/episode_000968.parquet
+编码 episode 968 [0,262) camera=image frames=262
+写入：/DATA/disk0/yry/robomme_data_lerobot/latents/chunk-000/image/episode_000968_0_262.pth
+编码 episode 968 [0,262) camera=wrist_image frames=262
+写入：/DATA/disk0/yry/robomme_data_lerobot/latents/chunk-000/wrist_image/episode_000968_0_262.pth
+[170/200] 读取 episode 969：/DATA/disk0/yry/robomme_data_lerobot/data/chunk-000/episode_000969.parquet
+编码 episode 969 [0,448) camera=image frames=448
+写入：/DATA/disk0/yry/robomme_data_lerobot/latents/chunk-000/image/episode_000969_0_448.pth
+编码 episode 969 [0,448) camera=wrist_image frames=448
+写入：/DATA/disk0/yry/robomme_data_lerobot/latents/chunk-000/wrist_image/episode_000969_0_448.pth
+[171/200] 读取 episode 970：/DATA/disk0/yry/robomme_data_lerobot/data/chunk-000/episode_000970.parquet
+编码 episode 970 [0,517) camera=image frames=517
+写入：/DATA/disk0/yry/robomme_data_lerobot/latents/chunk-000/image/episode_000970_0_517.pth
+编码 episode 970 [0,517) camera=wrist_image frames=517
+写入：/DATA/disk0/yry/robomme_data_lerobot/latents/chunk-000/wrist_image/episode_000970_0_517.pth
+[172/200] 读取 episode 971：/DATA/disk0/yry/robomme_data_lerobot/data/chunk-000/episode_000971.parquet
+编码 episode 971 [0,275) camera=image frames=275
+写入：/DATA/disk0/yry/robomme_data_lerobot/latents/chunk-000/image/episode_000971_0_275.pth
+编码 episode 971 [0,275) camera=wrist_image frames=275
+写入：/DATA/disk0/yry/robomme_data_lerobot/latents/chunk-000/wrist_image/episode_000971_0_275.pth
+[173/200] 读取 episode 972：/DATA/disk0/yry/robomme_data_lerobot/data/chunk-000/episode_000972.parquet
+编码 episode 972 [0,267) camera=image frames=267
+写入：/DATA/disk0/yry/robomme_data_lerobot/latents/chunk-000/image/episode_000972_0_267.pth
+编码 episode 972 [0,267) camera=wrist_image frames=267
+写入：/DATA/disk0/yry/robomme_data_lerobot/latents/chunk-000/wrist_image/episode_000972_0_267.pth
+[174/200] 读取 episode 973：/DATA/disk0/yry/robomme_data_lerobot/data/chunk-000/episode_000973.parquet
+编码 episode 973 [0,273) camera=image frames=273
+写入：/DATA/disk0/yry/robomme_data_lerobot/latents/chunk-000/image/episode_000973_0_273.pth
+编码 episode 973 [0,273) camera=wrist_image frames=273
+写入：/DATA/disk0/yry/robomme_data_lerobot/latents/chunk-000/wrist_image/episode_000973_0_273.pth
+[175/200] 读取 episode 974：/DATA/disk0/yry/robomme_data_lerobot/data/chunk-000/episode_000974.parquet
+编码 episode 974 [0,252) camera=image frames=252
+写入：/DATA/disk0/yry/robomme_data_lerobot/latents/chunk-000/image/episode_000974_0_252.pth
+编码 episode 974 [0,252) camera=wrist_image frames=252
+写入：/DATA/disk0/yry/robomme_data_lerobot/latents/chunk-000/wrist_image/episode_000974_0_252.pth
+[176/200] 读取 episode 975：/DATA/disk0/yry/robomme_data_lerobot/data/chunk-000/episode_000975.parquet
+编码 episode 975 [0,513) camera=image frames=513
+写入：/DATA/disk0/yry/robomme_data_lerobot/latents/chunk-000/image/episode_000975_0_513.pth
+编码 episode 975 [0,513) camera=wrist_image frames=513
+写入：/DATA/disk0/yry/robomme_data_lerobot/latents/chunk-000/wrist_image/episode_000975_0_513.pth
+[177/200] 读取 episode 976：/DATA/disk0/yry/robomme_data_lerobot/data/chunk-000/episode_000976.parquet
+编码 episode 976 [0,482) camera=image frames=482
+写入：/DATA/disk0/yry/robomme_data_lerobot/latents/chunk-000/image/episode_000976_0_482.pth
+编码 episode 976 [0,482) camera=wrist_image frames=482
+写入：/DATA/disk0/yry/robomme_data_lerobot/latents/chunk-000/wrist_image/episode_000976_0_482.pth
+[178/200] 读取 episode 977：/DATA/disk0/yry/robomme_data_lerobot/data/chunk-000/episode_000977.parquet
+编码 episode 977 [0,453) camera=image frames=453
+写入：/DATA/disk0/yry/robomme_data_lerobot/latents/chunk-000/image/episode_000977_0_453.pth
+编码 episode 977 [0,453) camera=wrist_image frames=453
+写入：/DATA/disk0/yry/robomme_data_lerobot/latents/chunk-000/wrist_image/episode_000977_0_453.pth
+[179/200] 读取 episode 978：/DATA/disk0/yry/robomme_data_lerobot/data/chunk-000/episode_000978.parquet
+编码 episode 978 [0,439) camera=image frames=439
+写入：/DATA/disk0/yry/robomme_data_lerobot/latents/chunk-000/image/episode_000978_0_439.pth
+编码 episode 978 [0,439) camera=wrist_image frames=439
+写入：/DATA/disk0/yry/robomme_data_lerobot/latents/chunk-000/wrist_image/episode_000978_0_439.pth
+[180/200] 读取 episode 979：/DATA/disk0/yry/robomme_data_lerobot/data/chunk-000/episode_000979.parquet
+编码 episode 979 [0,469) camera=image frames=469
+写入：/DATA/disk0/yry/robomme_data_lerobot/latents/chunk-000/image/episode_000979_0_469.pth
+编码 episode 979 [0,469) camera=wrist_image frames=469
+写入：/DATA/disk0/yry/robomme_data_lerobot/latents/chunk-000/wrist_image/episode_000979_0_469.pth
+[181/200] 读取 episode 980：/DATA/disk0/yry/robomme_data_lerobot/data/chunk-000/episode_000980.parquet
+编码 episode 980 [0,460) camera=image frames=460
+写入：/DATA/disk0/yry/robomme_data_lerobot/latents/chunk-000/image/episode_000980_0_460.pth
+编码 episode 980 [0,460) camera=wrist_image frames=460
+写入：/DATA/disk0/yry/robomme_data_lerobot/latents/chunk-000/wrist_image/episode_000980_0_460.pth
+[182/200] 读取 episode 981：/DATA/disk0/yry/robomme_data_lerobot/data/chunk-000/episode_000981.parquet
+编码 episode 981 [0,267) camera=image frames=267
+写入：/DATA/disk0/yry/robomme_data_lerobot/latents/chunk-000/image/episode_000981_0_267.pth
+编码 episode 981 [0,267) camera=wrist_image frames=267
+写入：/DATA/disk0/yry/robomme_data_lerobot/latents/chunk-000/wrist_image/episode_000981_0_267.pth
+[183/200] 读取 episode 982：/DATA/disk0/yry/robomme_data_lerobot/data/chunk-000/episode_000982.parquet
+编码 episode 982 [0,266) camera=image frames=266
+写入：/DATA/disk0/yry/robomme_data_lerobot/latents/chunk-000/image/episode_000982_0_266.pth
+编码 episode 982 [0,266) camera=wrist_image frames=266
+写入：/DATA/disk0/yry/robomme_data_lerobot/latents/chunk-000/wrist_image/episode_000982_0_266.pth
+[184/200] 读取 episode 983：/DATA/disk0/yry/robomme_data_lerobot/data/chunk-000/episode_000983.parquet
+编码 episode 983 [0,274) camera=image frames=274
+写入：/DATA/disk0/yry/robomme_data_lerobot/latents/chunk-000/image/episode_000983_0_274.pth
+编码 episode 983 [0,274) camera=wrist_image frames=274
+写入：/DATA/disk0/yry/robomme_data_lerobot/latents/chunk-000/wrist_image/episode_000983_0_274.pth
+[185/200] 读取 episode 984：/DATA/disk0/yry/robomme_data_lerobot/data/chunk-000/episode_000984.parquet
+编码 episode 984 [0,448) camera=image frames=448
+写入：/DATA/disk0/yry/robomme_data_lerobot/latents/chunk-000/image/episode_000984_0_448.pth
+编码 episode 984 [0,448) camera=wrist_image frames=448
+写入：/DATA/disk0/yry/robomme_data_lerobot/latents/chunk-000/wrist_image/episode_000984_0_448.pth
+[186/200] 读取 episode 985：/DATA/disk0/yry/robomme_data_lerobot/data/chunk-000/episode_000985.parquet
+编码 episode 985 [0,250) camera=image frames=250
+写入：/DATA/disk0/yry/robomme_data_lerobot/latents/chunk-000/image/episode_000985_0_250.pth
+编码 episode 985 [0,250) camera=wrist_image frames=250
+写入：/DATA/disk0/yry/robomme_data_lerobot/latents/chunk-000/wrist_image/episode_000985_0_250.pth
+[187/200] 读取 episode 986：/DATA/disk0/yry/robomme_data_lerobot/data/chunk-000/episode_000986.parquet
+编码 episode 986 [0,525) camera=image frames=525
+写入：/DATA/disk0/yry/robomme_data_lerobot/latents/chunk-000/image/episode_000986_0_525.pth
+编码 episode 986 [0,525) camera=wrist_image frames=525
+写入：/DATA/disk0/yry/robomme_data_lerobot/latents/chunk-000/wrist_image/episode_000986_0_525.pth
+[188/200] 读取 episode 987：/DATA/disk0/yry/robomme_data_lerobot/data/chunk-000/episode_000987.parquet
+编码 episode 987 [0,264) camera=image frames=264
+写入：/DATA/disk0/yry/robomme_data_lerobot/latents/chunk-000/image/episode_000987_0_264.pth
+编码 episode 987 [0,264) camera=wrist_image frames=264
+写入：/DATA/disk0/yry/robomme_data_lerobot/latents/chunk-000/wrist_image/episode_000987_0_264.pth
+[189/200] 读取 episode 988：/DATA/disk0/yry/robomme_data_lerobot/data/chunk-000/episode_000988.parquet
+编码 episode 988 [0,517) camera=image frames=517
+写入：/DATA/disk0/yry/robomme_data_lerobot/latents/chunk-000/image/episode_000988_0_517.pth
+编码 episode 988 [0,517) camera=wrist_image frames=517
+写入：/DATA/disk0/yry/robomme_data_lerobot/latents/chunk-000/wrist_image/episode_000988_0_517.pth
+[190/200] 读取 episode 989：/DATA/disk0/yry/robomme_data_lerobot/data/chunk-000/episode_000989.parquet
+编码 episode 989 [0,445) camera=image frames=445
+写入：/DATA/disk0/yry/robomme_data_lerobot/latents/chunk-000/image/episode_000989_0_445.pth
+编码 episode 989 [0,445) camera=wrist_image frames=445
+写入：/DATA/disk0/yry/robomme_data_lerobot/latents/chunk-000/wrist_image/episode_000989_0_445.pth
+[191/200] 读取 episode 990：/DATA/disk0/yry/robomme_data_lerobot/data/chunk-000/episode_000990.parquet
+编码 episode 990 [0,465) camera=image frames=465
+写入：/DATA/disk0/yry/robomme_data_lerobot/latents/chunk-000/image/episode_000990_0_465.pth
+编码 episode 990 [0,465) camera=wrist_image frames=465
+写入：/DATA/disk0/yry/robomme_data_lerobot/latents/chunk-000/wrist_image/episode_000990_0_465.pth
+[192/200] 读取 episode 991：/DATA/disk0/yry/robomme_data_lerobot/data/chunk-000/episode_000991.parquet
+编码 episode 991 [0,262) camera=image frames=262
+写入：/DATA/disk0/yry/robomme_data_lerobot/latents/chunk-000/image/episode_000991_0_262.pth
+编码 episode 991 [0,262) camera=wrist_image frames=262
+写入：/DATA/disk0/yry/robomme_data_lerobot/latents/chunk-000/wrist_image/episode_000991_0_262.pth
+[193/200] 读取 episode 992：/DATA/disk0/yry/robomme_data_lerobot/data/chunk-000/episode_000992.parquet
+编码 episode 992 [0,455) camera=image frames=455
+写入：/DATA/disk0/yry/robomme_data_lerobot/latents/chunk-000/image/episode_000992_0_455.pth
+编码 episode 992 [0,455) camera=wrist_image frames=455
+写入：/DATA/disk0/yry/robomme_data_lerobot/latents/chunk-000/wrist_image/episode_000992_0_455.pth
+[194/200] 读取 episode 993：/DATA/disk0/yry/robomme_data_lerobot/data/chunk-000/episode_000993.parquet
+编码 episode 993 [0,256) camera=image frames=256
+写入：/DATA/disk0/yry/robomme_data_lerobot/latents/chunk-000/image/episode_000993_0_256.pth
+编码 episode 993 [0,256) camera=wrist_image frames=256
+写入：/DATA/disk0/yry/robomme_data_lerobot/latents/chunk-000/wrist_image/episode_000993_0_256.pth
+[195/200] 读取 episode 994：/DATA/disk0/yry/robomme_data_lerobot/data/chunk-000/episode_000994.parquet
+编码 episode 994 [0,458) camera=image frames=458
+写入：/DATA/disk0/yry/robomme_data_lerobot/latents/chunk-000/image/episode_000994_0_458.pth
+编码 episode 994 [0,458) camera=wrist_image frames=458
+写入：/DATA/disk0/yry/robomme_data_lerobot/latents/chunk-000/wrist_image/episode_000994_0_458.pth
+[196/200] 读取 episode 995：/DATA/disk0/yry/robomme_data_lerobot/data/chunk-000/episode_000995.parquet
+编码 episode 995 [0,247) camera=image frames=247
+写入：/DATA/disk0/yry/robomme_data_lerobot/latents/chunk-000/image/episode_000995_0_247.pth
+编码 episode 995 [0,247) camera=wrist_image frames=247
+写入：/DATA/disk0/yry/robomme_data_lerobot/latents/chunk-000/wrist_image/episode_000995_0_247.pth
+[197/200] 读取 episode 996：/DATA/disk0/yry/robomme_data_lerobot/data/chunk-000/episode_000996.parquet
+编码 episode 996 [0,264) camera=image frames=264
+写入：/DATA/disk0/yry/robomme_data_lerobot/latents/chunk-000/image/episode_000996_0_264.pth
+编码 episode 996 [0,264) camera=wrist_image frames=264
+写入：/DATA/disk0/yry/robomme_data_lerobot/latents/chunk-000/wrist_image/episode_000996_0_264.pth
+[198/200] 读取 episode 997：/DATA/disk0/yry/robomme_data_lerobot/data/chunk-000/episode_000997.parquet
+编码 episode 997 [0,447) camera=image frames=447
+写入：/DATA/disk0/yry/robomme_data_lerobot/latents/chunk-000/image/episode_000997_0_447.pth
+编码 episode 997 [0,447) camera=wrist_image frames=447
+写入：/DATA/disk0/yry/robomme_data_lerobot/latents/chunk-000/wrist_image/episode_000997_0_447.pth
+[199/200] 读取 episode 998：/DATA/disk0/yry/robomme_data_lerobot/data/chunk-000/episode_000998.parquet
+编码 episode 998 [0,259) camera=image frames=259
+写入：/DATA/disk0/yry/robomme_data_lerobot/latents/chunk-000/image/episode_000998_0_259.pth
+编码 episode 998 [0,259) camera=wrist_image frames=259
+写入：/DATA/disk0/yry/robomme_data_lerobot/latents/chunk-000/wrist_image/episode_000998_0_259.pth
+[200/200] 读取 episode 999：/DATA/disk0/yry/robomme_data_lerobot/data/chunk-000/episode_000999.parquet
+编码 episode 999 [0,416) camera=image frames=416
+写入：/DATA/disk0/yry/robomme_data_lerobot/latents/chunk-000/image/episode_000999_0_416.pth
+编码 episode 999 [0,416) camera=wrist_image frames=416
+写入：/DATA/disk0/yry/robomme_data_lerobot/latents/chunk-000/wrist_image/episode_000999_0_416.pth
