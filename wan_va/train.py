@@ -168,8 +168,8 @@ class Trainer:
 
         self.gradient_accumulation_steps = getattr(config, 'gradient_accumulation_steps', 1)
         self.train_loader_iter = None
-        # if hasattr(config, 'resume_from') and config.resume_from:
-        #     self._load_training_state(config.resume_from)
+        if getattr(config, 'resume_from', None):
+            self._load_training_state(config.resume_from)
     
     def _get_next_batch(self):
         """Get next batch from iterator, reset if epoch is finished."""
@@ -354,15 +354,25 @@ class Trainer:
     def save_checkpoint(self,):
         """Save model checkpoint in the same format as pretrained model."""
         try:
+            state_dict_options = StateDictOptions(
+                full_state_dict=True,
+                cpu_offload=True,
+            )
             state_dict = get_model_state_dict(
                 self.transformer,
-                options=StateDictOptions(full_state_dict=True, cpu_offload=True),
+                options=state_dict_options,
             )
             state_dict_bf16 = {k: v.to(torch.bfloat16) for k, v in state_dict.items()}
-            # optim_state = get_optimizer_state_dict(
-            #         self.transformer, self.optimizer,
-            #         options=StateDictOptions(full_state_dict=True, cpu_offload=True),
-            #     )
+            del state_dict
+
+            # This is a collective FSDP operation. With cpu_offload=True, rank 0
+            # receives the full optimizer state and the other ranks receive an
+            # empty dict, so only rank 0 writes it to disk.
+            optim_state = get_optimizer_state_dict(
+                self.transformer,
+                self.optimizer,
+                options=state_dict_options,
+            )
 
             # Only rank 0 saves the checkpoint
             if self.config.rank == 0:
@@ -387,14 +397,21 @@ class Trainer:
                 with open(config_file, 'w') as f:
                     json.dump(config_dict, f, indent=2)
 
-                # # Save optimizer state and training metadata in PyTorch format
-                # training_state_path = checkpoint_dir / "training_state.pt"
-                # logger.info(f"Saving training state to {training_state_path}")
-                # torch.save({
-                #     'step': self.step,
-                #     'optimizer_state_dict': optim_state,
-                #     'config': vars(self.config),
-                # }, training_state_path)
+                # Save optimizer, LR scheduler and optimizer-step metadata.
+                # Write atomically so a preempted job cannot leave a partially
+                # written training_state.pt that looks resumable.
+                training_state_path = checkpoint_dir / "training_state.pt"
+                temporary_state_path = checkpoint_dir / "training_state.pt.tmp"
+                logger.info(f"Saving training state to {training_state_path}")
+                torch.save({
+                    'checkpoint_version': 1,
+                    'step': self.step,
+                    'optimizer_state_dict': optim_state,
+                    'lr_scheduler_state_dict': self.lr_scheduler.state_dict(),
+                    'gradient_accumulation_steps': self.gradient_accumulation_steps,
+                    'world_size': self.config.world_size,
+                }, temporary_state_path)
+                os.replace(temporary_state_path, training_state_path)
 
                 logger.info(f"Checkpoint saved successfully at step {self.step}")
 
@@ -412,31 +429,128 @@ class Trainer:
                 dist.barrier()
 
     def _load_training_state(self, checkpoint_path):
-        """Load training state (optimizer + step) after FSDP and optimizer creation."""
+        """Restore optimizer, LR scheduler and optimizer step after FSDP setup."""
         checkpoint_dir = Path(checkpoint_path)
         training_state_path = checkpoint_dir / "training_state.pt"
 
         if not training_state_path.exists():
-            if self.config.rank == 0:
-                logger.warning(f"Training state not found: {training_state_path}, starting from step 0")
-            return
+            raise FileNotFoundError(
+                f"Cannot resume training: {training_state_path} does not exist. "
+                "This checkpoint may contain model weights only."
+            )
 
         if self.config.rank == 0:
             logger.info(f"Loading training state from {training_state_path}")
 
-        # All ranks load the training state directly
-        training_state = torch.load(training_state_path, map_location='cpu', weights_only=False)
+        # Loading a full AdamW state on every rank can exceed host memory. Rank 0
+        # reads it once and set_optimizer_state_dict broadcasts/shards it for
+        # the remaining FSDP ranks.
+        if self.config.rank == 0:
+            try:
+                training_state = torch.load(
+                    training_state_path,
+                    map_location='cpu',
+                    weights_only=False,
+                )
+                required_keys = {
+                    'step',
+                    'optimizer_state_dict',
+                    'lr_scheduler_state_dict',
+                }
+                missing_keys = required_keys.difference(training_state)
+                if missing_keys:
+                    raise KeyError(
+                        f"missing required keys: {sorted(missing_keys)}"
+                    )
+                optimizer_state = training_state['optimizer_state_dict']
+                resume_metadata = {
+                    'load_error': None,
+                    'step': int(training_state['step']),
+                    'lr_scheduler_state_dict': training_state[
+                        'lr_scheduler_state_dict'
+                    ],
+                    'gradient_accumulation_steps': training_state.get(
+                        'gradient_accumulation_steps'
+                    ),
+                    'world_size': training_state.get('world_size'),
+                }
+            except Exception as exc:
+                optimizer_state = {}
+                resume_metadata = {
+                    'load_error': (
+                        f"Failed to load {training_state_path}: "
+                        f"{type(exc).__name__}: {exc}"
+                    )
+                }
+        else:
+            optimizer_state = {}
+            resume_metadata = None
 
-        # All ranks load optimizer state (required for FSDP)
-        set_optimizer_state_dict(
-            self.transformer, self.optimizer,
-            optim_state_dict=training_state['optimizer_state_dict'],
-            options=StateDictOptions(full_state_dict=True, strict=False)
+        metadata_list = [resume_metadata]
+        if dist.is_initialized():
+            dist.broadcast_object_list(metadata_list, src=0)
+        resume_metadata = metadata_list[0]
+
+        if resume_metadata is None:
+            raise RuntimeError("Rank 0 did not provide checkpoint metadata")
+        if resume_metadata['load_error'] is not None:
+            raise RuntimeError(resume_metadata['load_error'])
+
+        resume_step = resume_metadata['step']
+        if resume_step < 0:
+            raise ValueError(f"Invalid negative checkpoint step: {resume_step}")
+        if resume_step > self.config.num_steps:
+            raise ValueError(
+                f"Checkpoint step {resume_step} is greater than target "
+                f"num_steps {self.config.num_steps}. num_steps is the final "
+                "target step, not the number of additional steps."
+            )
+
+        saved_accumulation = resume_metadata['gradient_accumulation_steps']
+        if (saved_accumulation is not None
+                and saved_accumulation != self.gradient_accumulation_steps
+                and self.config.rank == 0):
+            logger.warning(
+                "Resuming with gradient_accumulation_steps=%s, but the "
+                "checkpoint used %s. Optimizer state will be restored, but "
+                "the effective global batch size has changed.",
+                self.gradient_accumulation_steps,
+                saved_accumulation,
+            )
+
+        saved_world_size = resume_metadata['world_size']
+        if (saved_world_size is not None
+                and saved_world_size != self.config.world_size
+                and self.config.rank == 0):
+            logger.info(
+                "Resharding optimizer state from world size %s to %s.",
+                saved_world_size,
+                self.config.world_size,
+            )
+
+        # The scheduler must already exist before optimizer state is restored;
+        # load its progress first and then restore optimizer param-group LRs.
+        self.lr_scheduler.load_state_dict(
+            resume_metadata['lr_scheduler_state_dict']
         )
-        self.step = training_state.get('step', 0)
+        set_optimizer_state_dict(
+            self.transformer,
+            self.optimizer,
+            optim_state_dict=optimizer_state,
+            options=StateDictOptions(
+                full_state_dict=True,
+                broadcast_from_rank0=True,
+                strict=True,
+            ),
+        )
+        self.step = resume_step
 
         if self.config.rank == 0:
-            logger.info(f"Training state loaded, resuming from step {self.step}")
+            logger.info(
+                "Training state loaded: step=%s, lr=%s",
+                self.step,
+                self.lr_scheduler.get_last_lr(),
+            )
 
         # Synchronize all ranks
         if dist.is_initialized():
@@ -550,6 +664,8 @@ def run(args):
 
     if args.save_root is not None:
         config.save_root = args.save_root
+    if args.resume_from is not None:
+        config.resume_from = args.resume_from
 
     if rank == 0:
         logger.info(f"Using config: {args.config_name}")
@@ -573,6 +689,15 @@ def main():
         type=str,
         default=None,
         help="Root directory for saving checkpoints",
+    )
+    parser.add_argument(
+        "--resume-from",
+        type=str,
+        default=None,
+        help=(
+            "Checkpoint directory containing transformer/ and "
+            "training_state.pt. num_steps remains the final target step."
+        ),
     )
 
     args = parser.parse_args()

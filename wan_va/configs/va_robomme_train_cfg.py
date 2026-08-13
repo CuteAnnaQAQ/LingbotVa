@@ -31,3 +31,5 @@ va_robomme_train_cfg.batch_size = int(os.getenv('ROBOMME_BATCH_SIZE', '1'))
 va_robomme_train_cfg.gradient_accumulation_steps = int(
     os.getenv('ROBOMME_GRADIENT_ACCUMULATION_STEPS', '32'))
 va_robomme_train_cfg.num_steps = int(os.getenv('ROBOMME_NUM_STEPS', '50000'))
+va_robomme_train_cfg.resume_from = os.getenv(
+    'ROBOMME_RESUME_FROM', '').strip() or None
