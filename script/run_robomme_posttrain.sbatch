@@ -3,7 +3,7 @@
 #SBATCH --nodes=1
 #SBATCH --ntasks=1
 #SBATCH --cpus-per-task=16
-#SBATCH --gres=gpu:6
+#SBATCH --gres=gpu:4
 #SBATCH --mem=256G
 #SBATCH --time=1-12:00:00
 #SBATCH --output=logs/post_train/slurm-%x-%j.out
@@ -15,7 +15,7 @@ source "$(conda info --base)/etc/profile.d/conda.sh"
 conda activate lingbotva
 cd "${SLURM_SUBMIT_DIR}"
 
-NGPU=${NGPU:-6}
+NGPU=${NGPU:-4}
 MASTER_PORT=${MASTER_PORT:-29501}
 LOG_RANK=${LOG_RANK:-}
 ROBOMME_SAVE_ROOT=${ROBOMME_SAVE_ROOT:-/DATA/disk0/yry/LingbotVa/results/lingbotva_robomme_1k}
@@ -28,9 +28,9 @@ fi
 export ROBOMME_LEROBOT_DATASET_PATH=/DATA/disk0/yry/robomme_data_lerobot
 export LINGBOT_ROBOMME_ACTION_STATS=${ROBOMME_LEROBOT_DATASET_PATH}/robomme_action_stats.json
 
-# 6 卡、1,000 optimizer steps、global batch 36。
+# 4 卡、1,000 optimizer steps、global batch 36。
 export ROBOMME_ENABLE_WANDB=${ROBOMME_ENABLE_WANDB:-1}
-export ROBOMME_LOAD_WORKER=${ROBOMME_LOAD_WORKER:-4}
+export ROBOMME_LOAD_WORKER=${ROBOMME_LOAD_WORKER:-2}
 export ROBOMME_BATCH_SIZE=${ROBOMME_BATCH_SIZE:-1}
 export ROBOMME_GRADIENT_ACCUMULATION_STEPS=${ROBOMME_GRADIENT_ACCUMULATION_STEPS:-6}
 export ROBOMME_NUM_STEPS=${ROBOMME_NUM_STEPS:-1000}
